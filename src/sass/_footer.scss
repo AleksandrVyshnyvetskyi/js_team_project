@@ -1,60 +1,45 @@
-body {
-    max-width: 1280px;
-    background-color: E5E5E5;
-    margin: 0 auto;
-}
-
-.header-box {
-    height: 216px;
-    background-color: aqua;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    & h2 {
-        font-size: 72px;
-    }
-}
-
-.main-box {
-    height: 1000px;
-    background-color: blanchedalmond;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    & h2 {
-        font-size: 72px;
-    }
-}
-
-
 .footer__box {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+
     display: flex;
     align-items: center;
     flex-direction: column;
-
-    font-family: roboto;
-    font-size: 14px;
-    font-weight: 400;
 
     padding: 15px;
 
     background-color: #fff;
     color: #545454;
 
-    & p {
-        margin: 0;
-    }
-
     & div {
         display: flex;
+        align-items: center;
         margin-top: 9px;
     }
 
-    & img {
+    & svg {
         width: 14px;
         height: 12px;
         margin-left: 10px;
         margin-right: 10px;
+    }
+
+    & .footer__btn {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        border: none;
+        background-color: white;
+        color: #545454;
+        padding: 0;
+        cursor: pointer;
+        & span {
+            text-decoration: underline;
+    
+            &:hover, &:focus{
+                color: #FF6B08;
+            }
+        }
     }
 
     @include tab {
@@ -66,27 +51,6 @@ body {
         & div {
             margin-top: 0;
             margin-left: 5px;
-        }
-    }
-}
-
-.footer__box--border {
-    border-left: 1px solid #545454;
-    border-right: 1px solid #545454;
-    padding: 0 10px;
-    margin: auto 10px;
-}
-
-.footer__btn {
-    border: none;
-    background-color: white;
-    color: #545454;
-    cursor: pointer;
-    & span {
-        text-decoration: underline;
-
-        &:hover, &:focus{
-            color: #FF6B08;
         }
     }
 }
