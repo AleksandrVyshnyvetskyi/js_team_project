@@ -1,8 +1,19 @@
 :root {
     // основной цвет текста
     --base-text-color: #000000;
+    // вторичный цвет текста
+    --secondary-text-color: #fff;
+    // основной цвет фона
+    --base-bg-color: #fff;
+    // вторичный цвет фона
+    --secondary-bg-color: #F7F7F7;
+    // темный цвет фона
+    --dark-bg-color: #E5E5E5;
+    
     // акцент цвет
     --acent-color: #FF6B08;
+    // неактивный элемент
+    --disabled-color: #ccc;
 }
 
 ::-webkit-scrollbar {
@@ -16,10 +27,11 @@
 }
 
 body {
-    max-width: 1280px;
-    background-color: E5E5E5;
+    // max-width: 1280px;
+    background-color: var(--base-bg-color);
+    color: var(--base-text-color);
     margin: 0 auto;
-    height: 1600px;
+    // height: 1600px;
 }
 
 .container {
@@ -36,6 +48,10 @@ body {
     @include desk {
         width: 1280px;
     }
+}
+
+.section{
+    margin-bottom: 60px;
 }
 
 img {
