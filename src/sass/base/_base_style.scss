@@ -16,8 +16,15 @@
 }
 
 body {
+<<<<<<< Updated upstream
     max-width: 1280px;
     background-color: E5E5E5;
+=======
+    // max-width: 1280px;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--base-bg-color);
+    color: var(--base-text-color);
+>>>>>>> Stashed changes
     margin: 0 auto;
     height: 1600px;
 }
