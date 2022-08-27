@@ -1,10 +1,12 @@
 .header {
     height: 216px;
-    background-color: grey;
+    background-color: rgb(42, 36, 36);
     padding-top: 40px;
     background-image: url(../images/Rectangle.jpg);
-    background-size: cover;
-    padding-bottom: 60px;
+    // background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    
 }
 
 .header-wrap {
@@ -106,4 +108,16 @@ cursor: pointer;
         border-radius: 5px;
         padding: 14px 42px;
         cursor: pointer;
+}
+.header-nav_log {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16;
+
+    text-transform: uppercase;
+    color: var(--base-bg-color);
+
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
 }

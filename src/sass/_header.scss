@@ -33,6 +33,7 @@
         align-items: center;
             margin-right: auto;
                 margin-left: auto;
+                margin-bottom: 20px;
                 // outline: 1px solid orange;
 }
 
@@ -57,6 +58,14 @@ input{
     height: 12px;
     margin-left: auto;
     cursor: pointer;
+}
+
+.header_error-msg{
+    text-align: center;
+    font-weight: 400;
+        font-size: 14px;
+        line-height: 1.16;  
+        color: #FF001B;
 }
 
 .header-nav_home {
@@ -93,4 +102,17 @@ input{
             bottom: 0;
             left: 0;
             
+}
+
+.header-nav_log{
+    font-weight: 500;
+        font-size: 12px;
+        line-height: 1.16;
+    
+        text-transform: uppercase;
+        color: var(--base-bg-color);
+
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10px;
 }
