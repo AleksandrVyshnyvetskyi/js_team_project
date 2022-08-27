@@ -1,6 +1,6 @@
 .header {
     height: 216px;
-    background-color: rgb(42, 36, 36);
+    background-color: rgb(30, 25, 25);
     padding-top: 40px;
     background-image: url(../images/Rectangle.jpg);
     // background-size: cover;
@@ -99,14 +99,14 @@
 .current-btn{
 
 background-color: var(--acent-color);
-padding: 14px 42px;
+padding: 14px 42px 11px 42px;
 border-radius: 5px;
 cursor: pointer;
 }
 .simple-btn{
     border: 1px solid #FFFFFF;
         border-radius: 5px;
-        padding: 14px 42px;
+        padding: 14px 42px 11px 42px;
         cursor: pointer;
 }
 .header-nav_log {
