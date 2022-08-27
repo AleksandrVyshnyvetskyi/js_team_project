@@ -1,0 +1,109 @@
+.header {
+    height: 216px;
+    background-color: grey;
+    padding-top: 40px;
+    background-image: url(../images/Rectangle.jpg);
+    background-size: cover;
+    padding-bottom: 60px;
+}
+
+.header-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.header-nav_list {
+    display: flex;
+}
+
+.main-logo_text {
+
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.16;
+    color: var(--base-bg-color);
+
+}
+
+
+
+
+.header-nav_home {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16;
+
+
+    text-transform: uppercase;
+    // color: #FFFFFF;
+    color: var(--base-bg-color);
+    margin-right: 40px;
+    
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.header-nav_libr {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16;
+
+    text-transform: uppercase;
+    color: var(--base-bg-color);
+    padding-top: 3px;
+    padding-bottom: 3px;
+    position: relative;
+}
+
+.link-current::after {
+    content: "";
+    display: block;
+    width: 100%;
+    background-color: #FF001B;
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+}
+.header_btn-wrap{
+    display: flex;
+    justify-content: center;
+}
+.header_btn-watched{
+    display: block;
+    font-weight: 500;
+        font-size: 12px;
+        line-height: 1.33;
+            
+                text-transform: uppercase;
+    
+        color:var(--base-bg-color);
+        margin-right: 16px;
+        
+}
+.header_btn-queue{
+    display: block;
+    font-weight: 500;
+        font-size: 12px;
+        line-height: 1.33;
+    
+        text-transform: uppercase;
+    
+        color: var(--base-bg-color);
+}
+.current-btn{
+
+background-color: var(--acent-color);
+padding: 14px 42px;
+border-radius: 5px;
+cursor: pointer;
+}
+.simple-btn{
+    border: 1px solid #FFFFFF;
+        border-radius: 5px;
+        padding: 14px 42px;
+        cursor: pointer;
+}
