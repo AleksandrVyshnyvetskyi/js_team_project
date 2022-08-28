@@ -15,5 +15,19 @@
 <symbol id="icon-svglinkedin" viewBox="0 0 32 32">
 <path d="M24 17.694v5.915h-3.429v-5.519c0-1.386-0.496-2.332-1.737-2.332-0.948 0-1.511 0.638-1.76 1.255-0.090 0.221-0.114 0.528-0.114 0.836v5.761h-3.431c0 0 0.046-9.348 0-10.316h3.43v1.462c-0.007 0.011-0.016 0.023-0.023 0.033h0.023v-0.033c0.456-0.702 1.27-1.705 3.091-1.705 2.258 0 3.949 1.475 3.949 4.643zM9.941 8.32c-1.174 0-1.941 0.77-1.941 1.782 0 0.99 0.745 1.783 1.896 1.783h0.023c1.196 0 1.94-0.793 1.94-1.783-0.022-1.012-0.744-1.782-1.918-1.782zM8.204 23.609h3.429v-10.316h-3.429v10.316z"></path>
 </symbol>
+<symbol id="icon-search-2" viewBox="0 0 32 32">
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M14.667 25.333c5.891 0 10.667-4.776 10.667-10.667s-4.776-10.667-10.667-10.667c-5.891 0-10.667 4.776-10.667 10.667s4.776 10.667 10.667 10.667z"></path>
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M28 28.001l-5.8-5.8"></path>
+</symbol>
+<symbol id="icon-film" viewBox="0 0 32 32">
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M26.427 3.606h-20.853c-1.605 0-2.907 1.239-2.907 2.768v19.856c0 1.529 1.301 2.768 2.907 2.768h20.853c1.605 0 2.907-1.239 2.907-2.768v-19.856c0-1.529-1.301-2.768-2.907-2.768z"></path>
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M9.333 3.606v25.391"></path>
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M22.667 3.606v25.391"></path>
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M2.667 16.301h26.667"></path>
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M2.667 9.954h6.667"></path>
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M2.667 22.649h6.667"></path>
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M22.667 22.649h6.667"></path>
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M22.667 9.954h6.667"></path>
+</symbol>
 </defs>
 </svg>
