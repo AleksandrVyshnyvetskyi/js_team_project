@@ -18,6 +18,8 @@
     "url": "https://AleksandrVyshnyvetskyi.github.io/js_team_project/issues"
   },
   "dependencies": {
+    "firebase": "^9.9.3",
+    "firebaseui": "^6.0.1",
     "modern-normalize": "^1.1.0"
   },
   "devDependencies": {
