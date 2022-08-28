@@ -1,2 +1,2 @@
 const e=document.querySelector(".modal-open"),t=document.querySelector(".modal-dev__box "),c=document.querySelectorAll(".footer__btn"),a=document.querySelector(".modal-close");c.forEach((c=>{c.addEventListener("click",(c=>{c.preventDefault(),e.classList.add("active"),t.classList.add("active")}))})),a.addEventListener("click",(()=>{e.classList.remove("active"),t.classList.remove("active")})),document.addEventListener("click",(c=>{c.target===e&&(e.classList.remove("active"),t.classList.remove("active"))}));
-//# sourceMappingURL=index.7e9861cb.js.map
+//# sourceMappingURL=library.10e33d5b.js.map
