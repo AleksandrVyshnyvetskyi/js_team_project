@@ -121,7 +121,7 @@ margin-bottom: 32px;
         padding: 14px 37px 12px 37px;
         @include tab{
         margin-right: 32px;
-        padding: 13px 48px 13px 48px;
+        padding: 14px 48px 12px 48px;
         }
         @include desk{
             margin-right: 16px;
@@ -166,8 +166,12 @@ cursor: pointer;
 
     text-transform: uppercase;
     color: var(--base-bg-color);
-
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 10px;
+    padding-right: 0;
+    
+        display: block;
+        margin-left: auto;
+        margin-top: 10px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
 }
