@@ -1,0 +1,37 @@
+.film-card__img {
+    max-width: 395px;
+    max-height: 550px;
+    border-radius: 10px;
+   }
+
+.film-card__wrap {
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+@media screen and (max-width:767px) {
+    .film-card__img {
+        max-width: 280px;
+        max-height: 402px;
+    }
+
+
+}
+
+@media screen and (max-width:1279px) {
+  
+
+    .film-card__img {
+        max-width: 336px;
+        max-height: 400px;
+    }
+}
+
+@media screen and (max-width:1280px) {
+
+
+    .film-card__img {
+        max-width: 336px;
+        max-height: 420px;
+    }
+}
