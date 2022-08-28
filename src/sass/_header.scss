@@ -168,8 +168,13 @@ input{
     
         text-transform: uppercase;
         color: var(--base-bg-color);
+        padding-right:0 ;
 
-        display: flex;
-        justify-content: flex-end;
+        display: block;
+        margin-left:auto;
         margin-top: 10px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        
 }
