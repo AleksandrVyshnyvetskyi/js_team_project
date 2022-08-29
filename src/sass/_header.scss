@@ -33,15 +33,17 @@ background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url
 .header-wrap {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 32px;
+    align-items: flex-start;
+    margin-bottom: 12px;
     max-width: 320px;
     @include tab{
         max-width: 768px;
         
+        
     }
     @include desk{
         max-width: 1280px;
+        margin-bottom: 10px;
         
     }
 }
@@ -73,17 +75,16 @@ background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url
     align-items: center;
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     @include tab{
     width: 336px;
+    margin-bottom: 20px;
     }
     @include desk{
     width: 395px;
     }
                 
-     @media screen and(max-width:767px) {
-         margin-bottom: 16px;
-    }
+     
 }
 
 input{
@@ -94,6 +95,8 @@ input{
     border: none;
     @include desk{
     width: 383px;
+    color: white;
+    outline: none;
     }
    
     // outline: 1px solid orange;
@@ -172,9 +175,13 @@ input{
 
         display: block;
         margin-left:auto;
-        margin-top: 10px;
+        margin-top: 30px;
         background-color: transparent;
         border: none;
         cursor: pointer;
         
+}
+
+.is-hidden{
+    display: none;
 }

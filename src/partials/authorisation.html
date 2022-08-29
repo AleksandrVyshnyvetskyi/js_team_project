@@ -1,0 +1,28 @@
+<section class="autherisation_container"> 
+            <div class="modal-authent__box modal-open" id="firebaseui-auth-container">
+                <svg class="auth-modal-close">
+                    <use href="/src/images/svg/symbol-defs.svg#icon-svgclose_24px"></use>
+                </svg>
+                <form class="authentification">
+                    <div class="registration">
+                        <h3 class="auth-modal-title">Please Register</h3>
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+                        <p class="warning-message__email"></p>
+
+                        <label for="password"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="password" id="password" required>
+
+                        <p class="warning-message__password"></p>
+
+                        <button type="button" name="register" id="registerBtn">Register</button>
+                        <button type="button" name="logIn" id="logInBtn">Log In</button>
+                    </div>
+                    <div class="authStatus visually-hidden">
+                        <p class="loggedInMessage"></p>
+                        <button class="logOutBtn">Log Out</button>
+                    </div>
+                </form>
+            </div>
+</section>

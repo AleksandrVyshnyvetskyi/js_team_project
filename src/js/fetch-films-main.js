@@ -1,10 +1,6 @@
 import axios from 'axios'
-
-const refs = {
-    containerBox: document.querySelector(`.main-container--card__box`),
-    containerCard: document.querySelector(`.main-container--card`)
-    
-};
+import refs from './refs';
+import { addCurrrentMoviesToLocalStorage } from "./local-storage"
 
 const API_KEY = '2994e3a31c3cad99fd99bf3fe61d916f';
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
@@ -15,6 +11,8 @@ const searchFilms = async () => {
     );
     // console.log(response.data.results)
     renderFilmList(response.data.results)
+    console.log(response.data.results);
+    addCurrrentMoviesToLocalStorage(response.data.results);
     return response.data;
 };
 
@@ -26,6 +24,7 @@ const addGenresToLocalStorage = async () => {
     );
     // console.log(genres.data.genres)
     localStorage.setItem("GENRES", JSON.stringify(genres.data.genres))
+   
 };
 
 addGenresToLocalStorage();
@@ -69,3 +68,4 @@ function renderFilmList(films) {
             }).join("");
     refs.containerBox.innerHTML = markup;
 };
+
