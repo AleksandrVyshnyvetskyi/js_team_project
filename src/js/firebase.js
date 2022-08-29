@@ -7,7 +7,6 @@ import {
     onAuthStateChanged,
     signOut
 } from "firebase/auth";
-
 // Modal for authorisation
 
 const modalOpen = document.querySelector('.modal-open');
@@ -145,3 +144,4 @@ const logOut = async () => {
 };
 
 logOutBtn.addEventListener('click', logOut)
+
