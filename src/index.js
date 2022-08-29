@@ -1,9 +1,10 @@
 import refs from "./js/refs";
 import API from "./js/api-service";
-import {appendGallery} from "./js/create-markup";
+import { appendGallery } from "./js/create-markup";
 
-const newAPI = new API();
-newAPI.fetchPopularMovie().then(appendGallery);
+
+// const newAPI = new API();
+// newAPI.fetchPopularMovie().then(appendGallery);
 
 
     //------------ ЗНАЧЕНИЯ ДЛЯ КАРТОЧКИ
