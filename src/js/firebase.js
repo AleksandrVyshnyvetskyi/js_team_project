@@ -1,12 +1,12 @@
-// import { initializeApp } from 'firebase/app';
-// import {
-//     getAuth,
-//     signInWithEmailAndPassword,
-//     createUserWithEmailAndPassword,
-//     AuthErrorCodes,
-//     onAuthStateChanged
-// } from "firebase/auth";
-
+import { initializeApp } from 'firebase/app';
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    AuthErrorCodes,
+    onAuthStateChanged,
+    signOut
+} from "firebase/auth";
 // Modal for authorisation
 
 const modalOpen = document.querySelector('.modal-open');
@@ -75,6 +75,7 @@ const logInUser = async () => {
         const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
         console.log(userCredential.user);
         hideLogInError();
+        showUserState();
     } catch (error) {
         console.log(error.name);
         console.log(error.message);
@@ -113,13 +114,20 @@ const showPasswordError = (error) => {
     };
 }
 
+const authState = document.querySelector('.authStatus');
+const registrationBlock = document.querySelector('.registration')
 
-const showUserState = (user) => {
-    let message = '11:04 на видео, если понадобится'
+const showUserState = () => {
+    const loginEmail = document.getElementById('email').value;
+    registrationBlock.classList.add('visually-hidden');
+    authState.classList.remove('visually-hidden');
+    authState.innerHTML = `You are logged in as ${loginEmail}`;
 };
 
 hideLogInError();
 
+//Authentication status
+const logOutBtn = document.querySelector('.logOutBtn');
 const monitorAuthState = async () => {
     onAuthStateChanged(auth, user => {
         if (user) {
@@ -130,3 +138,10 @@ const monitorAuthState = async () => {
     })
 };
 monitorAuthState();
+
+const logOut = async () => {
+    await signOut(auth);
+};
+
+logOutBtn.addEventListener('click', logOut)
+
