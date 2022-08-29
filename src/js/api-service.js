@@ -1,7 +1,7 @@
 export default class API { 
     constructor() {
         this.BASE_URL = "https://api.themoviedb.org/3/";
-        this.API_KEY = "api_key=2994e3a31c3cad99fd99bf3fe61d916f&";
+        this.API_KEY = "api_key=2994e3a31c3cad99fd99bf3fe61d916f";
         this.id = 500;
         this.pageNumber = 1;
         this.searchQuery = "";  
@@ -10,7 +10,7 @@ export default class API {
 
     async fetchPopularMovie() { 
 
-        const response = fetch(`${this.BASE_URL}trending/movie/day?${this.API_KEY}`)
+        const response = fetch(`${this.BASE_URL}trending/movie/day?${this.API_KEY}&page=${this.pageNumber}`)
         const data = response.then((r) => r.json());
         return data;
     }
@@ -18,7 +18,7 @@ export default class API {
 
 
      async fetchSearchMovie() { 
-        const response = fetch(`https://api.themoviedb.org/3//movie/5?${this.API_KEY}`)
+        const response = fetch(`https://api.themoviedb.org/3//movie/5?${this.API_KEY}&page=${this.pageNumber}`)
         const data = response.then((r) => r.json());
         return data;  
     }
@@ -37,6 +37,10 @@ export default class API {
 
     resetPage() { 
         this.pageNumber = 1;
+    }
+
+    set setPageNumber(pageNumber) { 
+        this.pageNumber = pageNumber;
     }
 
 }
