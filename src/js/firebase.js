@@ -1,13 +1,12 @@
-import { initializeApp } from 'firebase/app';
-import {
-    getAuth,
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword,
-    AuthErrorCodes,
-    onAuthStateChanged,
-    signOut
-} from "firebase/auth";
-
+// import { initializeApp } from 'firebase/app';
+// import {
+//     getAuth,
+//     signInWithEmailAndPassword,
+//     createUserWithEmailAndPassword,
+//     AuthErrorCodes,
+//     onAuthStateChanged,
+//     signOut
+// } from "firebase/auth";
 // Modal for authorisation
 
 const modalOpen = document.querySelector('.modal-open');
@@ -145,3 +144,4 @@ const logOut = async () => {
 };
 
 logOutBtn.addEventListener('click', logOut)
+
