@@ -1,11 +1,11 @@
-import { initializeApp } from 'firebase/app';
-import {
-    getAuth,
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword,
-    AuthErrorCodes,
-    onAuthStateChanged
-} from "firebase/auth";
+// import { initializeApp } from 'firebase/app';
+// import {
+//     getAuth,
+//     signInWithEmailAndPassword,
+//     createUserWithEmailAndPassword,
+//     AuthErrorCodes,
+//     onAuthStateChanged
+// } from "firebase/auth";
 
 // Modal for authorisation
 
