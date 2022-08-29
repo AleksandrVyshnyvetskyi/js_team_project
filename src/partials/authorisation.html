@@ -3,9 +3,9 @@
                 <svg class="auth-modal-close">
                     <use href="/src/images/svg/symbol-defs.svg#icon-svgclose_24px"></use>
                 </svg>
-                <h1>Please Register</h1>
-                <form action="" class="authentification">
+                <form class="authentification">
                     <div class="registration">
+                        <h3 class="auth-modal-title">Please Register</h3>
                         <label for="email"><b>Email</b></label>
                         <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
@@ -19,9 +19,10 @@
                         <button type="button" name="register" id="registerBtn">Register</button>
                         <button type="button" name="logIn" id="logInBtn">Log In</button>
                     </div>
-                    <!-- <div class="signIn">
-                        <p>Already have an account? <a href="#">Sign In</a>!</p>
-                    </div> -->
+                    <div class="authStatus visually-hidden">
+                        <p class="loggedInMessage"></p>
+                        <button class="logOutBtn">Log Out</button>
+                    </div>
                 </form>
             </div>
 </section>
