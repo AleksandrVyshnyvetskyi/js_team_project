@@ -1,5 +1,8 @@
 import refs from "./refs";
 
+
+
+
 //------- НАБРОСОК РЕНДЕР ГАЛЕРЕИ
 
 const IMG_URL = "https://image.tmdb.org/t/p/w500"
