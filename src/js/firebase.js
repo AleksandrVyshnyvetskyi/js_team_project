@@ -1,12 +1,12 @@
-// import { initializeApp } from 'firebase/app';
-// import {
-//     getAuth,
-//     signInWithEmailAndPassword,
-//     createUserWithEmailAndPassword,
-//     AuthErrorCodes,
-//     onAuthStateChanged,
-//     signOut
-// } from "firebase/auth";
+import { initializeApp } from 'firebase/app';
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    AuthErrorCodes,
+    onAuthStateChanged,
+    signOut
+} from "firebase/auth";
 // Modal for authorisation
 
 const modalOpen = document.querySelector('.modal-open');
@@ -56,6 +56,8 @@ const createAccount = async () => {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, loginEmail, loginPassword);
         console.log(userCredential.user);
+        hideLogInError();
+        showUserState();
     } catch (error) {
         console.log(error.name);
         console.log(error.message);
@@ -120,6 +122,7 @@ const registrationBlock = document.querySelector('.registration')
 const showUserState = () => {
     const loginEmail = document.getElementById('email').value;
     registrationBlock.classList.add('visually-hidden');
+    btnAuth.classList.add('visually-hidden');
     authState.classList.remove('visually-hidden');
     authState.innerHTML = `You are logged in as ${loginEmail}`;
 };
