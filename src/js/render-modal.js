@@ -33,7 +33,7 @@ function filmMarkup(film) {
         </div>
         <div class="modal-right">
       
-          <h2 class="film-title">${film.original_title}</h2>
+          <h2 class="film-modal-title">${film.original_title}</h2>
           <table class="film-info">
             <tr>
               <td class="table-name">Vote / Votes</td>
@@ -51,7 +51,7 @@ function filmMarkup(film) {
             </tr>
             <tr>
               <td class="table-name">Genre</td>
-              <td class="table-value">value</td>
+              <td class="table-value">${transformId(film.genre_ids)}</td>
             </tr>
           </table>
 <div class="modal-about">

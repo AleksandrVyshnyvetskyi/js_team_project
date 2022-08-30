@@ -3,7 +3,7 @@ import { filmMarkup } from './render-modal';
 const refs = {
   onBtnClose: document.querySelector('button[data-modal-close]'),
   //   onBtnOpen: document.querySelector('button[data-modal-open]'),
-  onBtnOpen: document.querySelector('.main-container--card__box'),
+  onBtnOpen: document.querySelector('.main-container--card'),
   modal: document.querySelector('[data-modal]'),
   modalContainer: document.querySelector('.modal'),
   modalContent: document.querySelector('.modal-content'),
