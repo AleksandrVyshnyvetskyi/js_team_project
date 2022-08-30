@@ -4,7 +4,8 @@ export default  {
     containerCard: document.querySelector(`.main-container--card`),
     watchedList: document.querySelector(".header_btn-watched"),
     moviesContainer: document.querySelector('.main-container--card__box'),
-    queueList: document.querySelector(".header_btn-queue")
+    queueList: document.querySelector(".header_btn-queue"),
+    loader: document.querySelector('.js-loader')
     // btnAddWatched: document.querySelector(".watched-btn"),
     // btnQueue: document.querySelector(".queue-btn")
 }

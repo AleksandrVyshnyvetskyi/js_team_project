@@ -1,5 +1,6 @@
 import axios from "axios";
-import { renderMoviesCard } from "./create-markup"
+import { renderMoviesCard } from "./create-markup";
+import { hideLoader, showLoader } from './loader';
 
 
 const refs = {
@@ -8,6 +9,8 @@ const refs = {
     moviesContainer: document.querySelector('.main-container--card__box'),
     errorText: document.querySelector('.header_error-msg'),
 };
+
+
 
 ///////Буде винесено в інший файл
 let searchQuery = '';
@@ -24,6 +27,7 @@ async function fetchSearchMovie(searchQuery) {
 refs.searchForm.addEventListener('submit', onSearch);
 
 async function onSearch(event) {
+    
     event.preventDefault();
 
     searchQuery = event.currentTarget.elements.query.value.trim();
@@ -49,6 +53,7 @@ async function onSearch(event) {
         addCurrrentMoviesToLocalStorage (movies.results) 
         console.log(movies.results);
         
+                
     } catch (error) { console.log(error) };
 
     refs.inputEl.value = "";
