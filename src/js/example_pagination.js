@@ -1,5 +1,7 @@
 import Pagination from './pagination.js'
 import API from './api-service.js'
+import { addCurrrentMoviesToLocalStorage } from "./local-storage"
+
 
 const containerBox = document.querySelector(`.main-container--card__box`);
 
@@ -22,8 +24,10 @@ function getPopularMovie(page = false) {
         pagination.setTotalPages = data.total_pages; // Передает общее кол-во страниц в пагинатор
         pagination.setCallback = getPopularMovie; // Передает ссылку на коллбэк функцию 
         pagination.renderPagination(); // Вызов пагинации
-
+        addCurrrentMoviesToLocalStorage(data.results);
         renderFilmList(data.results); 
+        
+        
     }
         
 );
