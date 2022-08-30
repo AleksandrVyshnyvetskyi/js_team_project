@@ -15,7 +15,6 @@ function outOfModal(e) {
 }
 
 function escExit({ code }) {
-  console.log(code);
   if (code === 'Escape') {
     closeModal();
     document.removeEventListener('keydown', escExit);
