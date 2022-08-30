@@ -1,4 +1,3 @@
-import axios from "axios";
 import { renderMoviesCard } from "./create-markup";
 import { hideLoader, showLoader } from './loader';
 import { addCurrrentMoviesToLocalStorage } from "./local-storage";
@@ -16,7 +15,7 @@ const refs = {
 const apiService = new API;
 const pagination = new Pagination;
 
-///////Буде винесено в інший файл
+///////винесено в api-service
 // let searchQuery = '';
 
 // const BASE_URL = `https://api.themoviedb.org/3/search/movie`;
@@ -30,38 +29,52 @@ const pagination = new Pagination;
 
 refs.searchForm.addEventListener('submit', onSearch);
 
-async function onSearch(event) {
+function onSearch(event) {
     
     event.preventDefault();
-    
+    apiService.inputQuery = event.currentTarget.elements.query.value.trim();
+
     if (refs.inputEl.value === "") {
          return refs.errorText.classList.remove('is-hidden');
     }
     
-    
-    apiService.inputQuery = event.currentTarget.elements.query.value.trim();
     // console.log(searchQuery);
     refs.errorText.classList.add('is-hidden');
-
-    
    
-    try {
-       await apiService.fetchSearchMovie().then(data => {
-          if (data.total_pages === 0) {
-             return refs.errorText.classList.remove('is-hidden');
-            };
-            clearMoviesContainer();
-            refs.errorText.classList.add('is-hidden');
-            renderMoviesCard(data.results);
-            addCurrrentMoviesToLocalStorage (data.results) 
-            console.log(data.total_pages);
-        });
-                
-    } catch (error) { console.log(error) };
+    getSearchMovie();
 
     refs.inputEl.value = "";
 }
 
+async function getSearchMovie(page = false) {
+    
+    const queryPage = page ? page : 1; // Проверка страниц, обязательно до fetch
+    apiService.setPageNumber = queryPage; // Передает текущую страницу в класс api
+
+    // showLoader();
+    try {
+        await apiService.fetchSearchMovie().then(data => {
+          if (data.total_pages === 0) {
+             return refs.errorText.classList.remove('is-hidden');
+           };
+            pagination.setCurrentPage = queryPage; // Передает страницу в пагинатор
+            pagination.setTotalPages = data.total_pages; // Передает общее кол-во страниц в пагинатор
+            pagination.setCallback = getSearchMovie; // Передает ссылку на коллбэк функцию 
+            pagination.renderPagination(); // Вызов пагинации
+            clearMoviesContainer();
+            refs.errorText.classList.add('is-hidden');
+            
+            renderMoviesCard(data.results);
+            addCurrrentMoviesToLocalStorage (data.results) 
+            console.log(data.total_pages);
+        });      
+    } catch (error) {
+        console.log(error)
+    } finally {
+        // hideLoader();
+    }
+    
+}
 
 ///////////// --функція перенесена в файл create-markup----///////
 // function renderMoviesCard(results) {
@@ -111,6 +124,6 @@ async function onSearch(event) {
 
 
 function clearMoviesContainer() {
-  refs.moviesContainer.innerHTML = '';
+    refs.moviesContainer.innerHTML = "";
 }
 

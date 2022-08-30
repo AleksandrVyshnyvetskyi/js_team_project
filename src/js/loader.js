@@ -1,11 +1,11 @@
-// import '../sass/_visually-hidden.scss';
-// import refs from "./refs";
+import '../sass/_loader.scss';
+import refs from "./refs";
 
-// // приховати loader
+// приховати loader
 // export function hideLoader() {
 //   refs.loaderRef.loader.classList.add('is-hidden');
 // }
-// // показати loader
+// // // показати loader
 // export function showLoader() {
 //   refs.loaderRef.loader.classList.remove('is-hidden');
 // }
