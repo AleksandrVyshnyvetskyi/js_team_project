@@ -1,5 +1,6 @@
 .film-title{
     font-style: normal;
+    color: black;
     font-weight: 500;
 }
 @media screen and (min-width: 320px) {
@@ -19,7 +20,7 @@
     padding-top: 10px;
 }
 
-.more-info {
+.film-info {
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -29,6 +30,7 @@
 
 .film-title {
     font-size: 12px;
+    color: black;
     line-height: 14px;
 }
 }
@@ -59,7 +61,7 @@
      padding-top: 8px;
  }
 
- .more-info {
+ .film-info {
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -88,7 +90,7 @@
 .film-info {
     padding-top: 12px;
 }
-.more-info {
+.film-info {
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
@@ -97,6 +99,7 @@
 }
 .film-title {
     font-size: 20px;
+    color: black;
     line-height: 24px;
 }
    .main-container--card__box :nth-child(3n+3) {
@@ -110,15 +113,14 @@
    }
    }
 
-
-   .vote {
-    display: inline-block;
+.film-rating {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.17;
+    background-color: var(--acent-color);
+    color: var(--base-bg-color);
+    padding: 1px 10px;
+    margin-left: 10px;
+    border-radius: 3px;
     text-align: center;
-    width: 36px;
-    height: 15px;
-    text-transform: uppercase;
-    color: #fff;
-    background: #ff6b08;
-    border-radius: 5px;
-    border: 1px solid #ff6b08;
-   }
+}

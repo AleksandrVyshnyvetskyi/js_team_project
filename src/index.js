@@ -1,7 +1,5 @@
 import refs from "./js/refs";
 import API from "./js/api-service";
-import { renderFilmList } from "./js/create-markup";
-import { renderMoviesCard } from "./js/create-markup";
 
 
 
