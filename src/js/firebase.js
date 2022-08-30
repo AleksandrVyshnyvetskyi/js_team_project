@@ -69,6 +69,7 @@ const createAccount = async () => {
         hideLogInError();
         showUserState();
     } catch (error) {
+        
         console.log(error.name);
         console.log(error.message);
     }
