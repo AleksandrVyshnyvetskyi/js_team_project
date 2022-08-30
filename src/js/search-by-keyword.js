@@ -1,6 +1,9 @@
 import axios from "axios";
 import { renderMoviesCard } from "./create-markup";
 import { hideLoader, showLoader } from './loader';
+import { addCurrrentMoviesToLocalStorage } from "./local-storage";
+import Pagination from './pagination.js';
+import API from './api-service.js';
 
 
 const refs = {
@@ -10,18 +13,19 @@ const refs = {
     errorText: document.querySelector('.header_error-msg'),
 };
 
-
+const apiService = new API;
+const pagination = new Pagination;
 
 ///////Буде винесено в інший файл
-let searchQuery = '';
+// let searchQuery = '';
 
-const BASE_URL = `https://api.themoviedb.org/3/search/movie`;
-const KEY = `2994e3a31c3cad99fd99bf3fe61d916f`;
+// const BASE_URL = `https://api.themoviedb.org/3/search/movie`;
+// const KEY = `2994e3a31c3cad99fd99bf3fe61d916f`;
 
-async function fetchSearchMovie(searchQuery) {
-    return await axios.get(`${BASE_URL}?api_key=${KEY}&language=en-US&query=${searchQuery}`)
-        .then(response => response.data);
-}
+// async function fetchSearchMovie(searchQuery) {
+//     return await axios.get(`${BASE_URL}?api_key=${KEY}&language=en-US&query=${searchQuery}`)
+//         .then(response => response.data);
+// }
 ///////////
 
 refs.searchForm.addEventListener('submit', onSearch);
@@ -29,35 +33,35 @@ refs.searchForm.addEventListener('submit', onSearch);
 async function onSearch(event) {
     
     event.preventDefault();
-
-    searchQuery = event.currentTarget.elements.query.value.trim();
-    // console.log(searchQuery);
-
-    refs.errorText.classList.add('is-hidden');
     
+    if (refs.inputEl.value === "") {
+         return refs.errorText.classList.remove('is-hidden');
+    }
+    
+    
+    apiService.inputQuery = event.currentTarget.elements.query.value.trim();
+    // console.log(searchQuery);
+    refs.errorText.classList.add('is-hidden');
 
-    if (searchQuery === '') {
-        return refs.errorText.classList.remove('is-hidden');
-    };
+    
    
     try {
-        const movies = await fetchSearchMovie(searchQuery);
-
-        if (movies.total_pages === 0) {
+       await apiService.fetchSearchMovie().then(data => {
+          if (data.total_pages === 0) {
              return refs.errorText.classList.remove('is-hidden');
-        };
-
-        clearMoviesContainer();
-        refs.errorText.classList.add('is-hidden');
-        renderMoviesCard(movies.results);
-        addCurrrentMoviesToLocalStorage (movies.results) 
-        console.log(movies.results);
-        
+            };
+            clearMoviesContainer();
+            refs.errorText.classList.add('is-hidden');
+            renderMoviesCard(data.results);
+            addCurrrentMoviesToLocalStorage (data.results) 
+            console.log(data.total_pages);
+        });
                 
     } catch (error) { console.log(error) };
 
     refs.inputEl.value = "";
 }
+
 
 ///////////// --функція перенесена в файл create-markup----///////
 // function renderMoviesCard(results) {
