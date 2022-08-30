@@ -1,6 +1,6 @@
 import refs from "./js/refs";
 import API from "./js/api-service";
-import { appendGallery } from "./js/create-markup";
+
 
 
 // const newAPI = new API();
