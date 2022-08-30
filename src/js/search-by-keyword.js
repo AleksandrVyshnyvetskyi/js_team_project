@@ -1,4 +1,5 @@
 import axios from "axios";
+import { addCurrrentMoviesToLocalStorage } from "./local-storage";
 
 const refs = {
     searchForm: document.querySelector('.header_input-wrap'),
@@ -25,7 +26,7 @@ async function onSearch(event) {
     event.preventDefault();
 
     searchQuery = event.currentTarget.elements.query.value.trim();
-    console.log(searchQuery);
+    // console.log(searchQuery);
 
     refs.errorText.classList.add('is-hidden');
     
@@ -44,6 +45,8 @@ async function onSearch(event) {
         clearMoviesContainer();
         refs.errorText.classList.add('is-hidden');
         renderMoviesCard(movies.results);
+        addCurrrentMoviesToLocalStorage (movies.results) 
+        console.log(movies.results);
         
     } catch (error) { console.log(error) };
 
