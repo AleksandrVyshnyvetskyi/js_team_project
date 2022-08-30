@@ -1,23 +1,78 @@
 import refs from "./refs";
+import { addCurrrentMoviesToLocalStorage } from "./local-storage"
+
+
+const IMG_URL = "https://image.tmdb.org/t/p/w500"
 
 
 
 
-//------- НАБРОСОК РЕНДЕР ГАЛЕРЕИ
+///////////// --функція для створення карток популярних фільмів на головну сторінку----///////
+function renderFilmList(films) {
+    const markup = films
+        .map((film) => {
+        console.log(film)
+            return `
+            <li class="main-container--card"
+        data-modal-open>
+        <img class="card-poster"
+        data-id="${film.id}" 
+        src="${film.poster_path === null ? './no_image.jpg'
+              : `${IMG_URL}${film.poster_path}`
+          }"
+        alt="${film.original_name}" loading="lazy">
+        <div class="card-wrap">
+        <h2 class="card-title" data-id="${film.id}">${film.original_title.toUpperCase() || film.title.toUpperCase() || film.title.toUpperCase()}</h2>
+        <p class="card-info"> ${transformId(film.genre_ids)} | ${(film.release_date || first_air_date).slice(0,4)} </p>
+         </div>
+    </li>`;
+        }).join("");
+refs.containerBox.innerHTML = markup;
+}
 
-// const IMG_URL = "https://image.tmdb.org/t/p/w500"
-// function createContent(array) { 
-//     return array.reduce((acc, arr) => acc + createCard(arr), "");
-// }
+export {renderFilmList};
 
-// function createCard(film) {
-//     return ` <li class="main-container--card"> <img src="${IMG_URL}${film.poster_path}"  alt=""> </li>`;
-// }
+///////////// --функція для створення карток  фільмів в MY LIBRARY----///////
+function renderMoviesCard(films) {
+    const filmCards = films
+    .map((film) => {
+        return `
+        <li class="main-container--card"
+        data-modal-open>
+        <img class="card-poster"
+        data-id="${film.id}" 
+        src="${IMG_URL}${film.poster_path}" 
+        alt="${film.original_name}" loading="lazy">
+        <div class="card-wrap">
+        <h2 class="card-title" data-id="${film.id}">${film.original_title.toUpperCase() || film.title.toUpperCase() || film.title.toUpperCase()}</h2>
+        <p class="card-info"> ${transformId(film.genre_ids)} | ${(film.release_date || first_air_date).slice(0,4)} <span class="card-rating"> ${film.vote_average.toFixed(1)}</span></p>
+         </div>
+    </li>`;
+        }).join("");
+    
+    refs.moviesContainer.insertAdjacentHTML('beforeend', filmCards);
+    
+};
 
-// function appendGallery(films) { 
-//     const markup = createContent(films.results);
-//     refs.galleryHome.insertAdjacentHTML("beforeend", markup);
-//     addCurrrentMoviesToLocalStorage(films.results);
-// }
+export {renderMoviesCard};
 
-// export {appendGallery};
+
+///////////// --функція для створення списку жанрів----///////
+function transformId ([...arr]) {
+    const g = localStorage.getItem("GENRES");
+    const genres = JSON.parse(g);
+    let genreName;
+    const array = [...arr]
+    for (let i = 0; i < genres.length; i++) {
+        for (let x = 0; x < array.length; x++) {
+            if (array[x] === genres[i].id) {
+                genreName = genres[i].name;
+                array[x] = genreName
+            };
+        };
+    };
+     if (array.length > 2) {
+        return `${array[0]}, ${array[1]}, Other`
+    }
+    return `${array[0]}, ${array[1]}`
+};

@@ -1,9 +1,10 @@
-.film-title{
+.card-title{
     font-style: normal;
+    color: black;
     font-weight: 500;
 }
 @media screen and (min-width: 320px) {
-.film-poster {
+.card-poster {
     width: 280px;
     height: 402px;
 }
@@ -15,11 +16,11 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.film-info {
+.card-info {
     padding-top: 10px;
 }
 
-.more-info {
+.card-info {
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -27,13 +28,14 @@
     color: #FF6B08;
 }
 
-.film-title {
+.card-title {
     font-size: 12px;
+    color: black;
     line-height: 14px;
 }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-.film-poster {
+.card-poster {
         width: 336px;
         height: 455px;
 }
@@ -55,11 +57,11 @@
      height: 495px;
      margin: 32px 32px 0 0;
  }
- .film-info {
+ .card-info {
      padding-top: 8px;
  }
 
- .more-info {
+ .card-info {
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -67,13 +69,13 @@
      color: #FF6B08;
  }
 
- .film-title {
+ .card-title {
      font-size: 12px;
      line-height: 16px;
  }
  }
 @media screen and (min-width: 1280px) {
-.film-poster {
+.card-poster {
         width: 394px;
         height: 574px;
     }
@@ -85,18 +87,19 @@
     margin-right: auto;
     padding: 28px 32px 60px 32px;
 }
-.film-info {
+.card-info {
     padding-top: 12px;
 }
-.more-info {
+.card-info {
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
     color: #FF6B08;
 }
-.film-title {
+.card-title {
     font-size: 20px;
+    color: black;
     line-height: 24px;
 }
    .main-container--card__box :nth-child(3n+3) {
@@ -109,3 +112,15 @@
        margin: 32px 16px 0 0;
    }
    }
+
+.card-rating {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.17;
+    background-color: var(--acent-color);
+    color: var(--base-bg-color);
+    padding: 1px 10px;
+    margin-left: 10px;
+    border-radius: 3px;
+    text-align: center;
+}
