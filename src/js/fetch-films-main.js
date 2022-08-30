@@ -11,7 +11,7 @@ const searchFilms = async () => {
     );
     // console.log(response.data.results)
     renderFilmList(response.data.results)
-    console.log(response.data.results);
+    // console.log(response.data.results);
     addCurrrentMoviesToLocalStorage(response.data.results);
     return response.data;
 };
@@ -44,7 +44,7 @@ function transformId ([...arr]) {
             };
         };
     };
-    console.log(array)
+    // console.log(array)
     if (array.length > 2) {
         return `${array[0]}, ${array[1]}, Other`
     }
@@ -55,7 +55,7 @@ function transformId ([...arr]) {
 function renderFilmList(films) {
         const markup = films
             .map((film) => {
-            console.log(film)
+            // console.log(film)
                 return `
         <li class="main-container--card">
             <img class="film-poster" src="${IMG_URL}${film.poster_path}" alt="${film.original_title}" loading="lazy">
