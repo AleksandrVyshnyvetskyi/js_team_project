@@ -1,21 +1,37 @@
-// import '../sass/_visually-hidden.scss';
-// import refs from "./refs";
+// Для встановлення Loader потрібно:
+// 1. Експортуємо функції у свій файл.
 
-// // приховати loader
-// export function hideLoader() {
-//   refs.loaderRef.loader.classList.add('is-hidden');
-// }
-// // показати loader
-// export function showLoader() {
-//   refs.loaderRef.loader.classList.remove('is-hidden');
-// }
+//  import { preloaderShow, preloaderShowLonger, hidePreloader } from './loader';
+
+// 2. Ставимо функцію запуску лоадеру на початок події (завантаження файлів, рендер бібліотеки, пошук фільмів).
+
+// preloaderShowLonger();   - виключається сама  після 700мс після запуску,
+
+// preloaderShow();  виключається тільки після запуску  функції hidePreloader();
+
+// 3. Ставимо функцію зняття лоадеру на закінчення події (завантаження файлів, рендер бібліотеки, пошук фільмів)
+
+// hidePreloader();
 
 
-document.body.onload = function () {
+const preloader = document.getElementById('preloader');
+
+function preloaderShow() {
+    preloader.classList.remove('done');
+    };
+    
+    
+  
+  function hidePreloader() {
+    preloader.classList.add('done');
+  };
+
+
+  function preloaderShowLonger() {
+    preloader.classList.remove('done');
     setTimeout(function () {
-        const preloader = document.getElementById('preloader');
-        if (!preloader.classList.contains('done')) {
-            preloader.classList.add('done');
-        }
-    }, 800);
-}
+        preloader.classList.add('done');
+    }, 700);
+};
+  
+  export { preloaderShow, preloaderShowLonger, hidePreloader };
