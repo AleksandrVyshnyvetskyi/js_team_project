@@ -1,6 +1,6 @@
 export { filmMarkup };
 
-function genreById([...args]) {
+function genreById([...arr]) {
   const g = localStorage.getItem('GENRES');
   const genres = JSON.parse(g);
   let genreName;
@@ -13,12 +13,28 @@ function genreById([...args]) {
       }
     }
   }
-  // console.log(array)
 
-  return `${array[0]}, ${array[1]}`;
+  if (array.length === 0) {
+    return '';
+  } else if (array.length === 1) {
+    return `${array[0]}`;
+  } else if (array.length === 2) {
+    return `${array[0]}, ${array[1]}`;
+  } else if (array.length === 3) {
+    return `${array[0]}, ${array[1]}, ${array[2]}`;
+  } else if (array.length === 4) {
+    return `${array[0]}, ${array[1]}, ${array[2]}, ${array[3]}`;
+  } else if (array.length === 5) {
+    return `${array[0]}, ${array[1]}, ${array[2]}, ${array[3]}, ${array[4]}`;
+  }
 }
 
 function filmMarkup(film) {
+  let aboutOverview = 'No information';
+  if (film.overview) {
+    aboutOverview = film.overview;
+  }
+
   const IMG_URL = 'https://image.tmdb.org/t/p/w500';
   return `
   <div class="container">
@@ -51,12 +67,12 @@ function filmMarkup(film) {
             </tr>
             <tr>
               <td class="table-name">Genre</td>
-              <td class="table-value">${transformId(film.genre_ids)}</td>
+              <td class="table-value">${genreById(film.genre_ids)}</td>
             </tr>
           </table>
 <div class="modal-about">
           <h3 class="about-title">About</h3>
-          <p class="about-desc">${film.overview}</p>
+          <p class="about-desc">${aboutOverview}</p>
       </div>
       <div class="modal-button">
         <button class="btn watched-btn" type="button">ADD TO WATCHED</button>
