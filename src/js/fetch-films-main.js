@@ -3,6 +3,7 @@ const API_KEY = '2994e3a31c3cad99fd99bf3fe61d916f';
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
 import Pagination from './pagination.js';
 import API from './api-service.js';
+import { addCurrrentMoviesToLocalStorage } from "./local-storage"
 
  
 const refs = {
@@ -10,6 +11,7 @@ const refs = {
     containerCard: document.querySelector(`.main-container--card`)
     
 };
+
 
 const containerBox = document.querySelector(`.main-container--card__box`);
 
@@ -42,6 +44,8 @@ const searchFilms = async () => {
         `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&language=en-US`
     );
     renderFilmList(response.data.results)
+    // console.log(response.data.results);
+    addCurrrentMoviesToLocalStorage(response.data.results);
     return response.data;
 };
 
@@ -52,6 +56,7 @@ const addGenresToLocalStorage = async () => {
         `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`
     );
     localStorage.setItem("GENRES", JSON.stringify(genres.data.genres))
+   
 };
 
 addGenresToLocalStorage();
@@ -69,6 +74,8 @@ function transformId ([...arr]) {
             };
         };
     };
+    // console.log(array)
+
     if (array.length > 2) {
         return `${array[0]}, ${array[1]}, Other`
     };
@@ -78,7 +85,7 @@ function transformId ([...arr]) {
 function renderFilmList(films) {
         const markup = films
             .map((film) => {
-            console.log(film)
+            // console.log(film)
                 return `
         <li class="main-container--card">
             <img
@@ -97,3 +104,4 @@ function renderFilmList(films) {
             }).join("");
     refs.containerBox.innerHTML = markup;
 };
+

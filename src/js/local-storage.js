@@ -1,12 +1,10 @@
-// import refs from "./refs";
+import refs from "./refs";
 
-function addCurrrentMoviesToLocalStorage (array) { 
-localStorage.setItem("movie_list", JSON.stringify(array))
+function addCurrrentMoviesToLocalStorage(array) { 
+localStorage.setItem("MOVIE_LIST", JSON.stringify(array))
 };
 
 
-// const btnAddWatched = document.querySelector("какой-токлас")
-// const btnQueue = document.querySelector("какой-токлас")
 // btnAddWatched.addEventListener("click", onAddWatchedClick)
 // btnQueue.addEventListene("click", onQueueClick)
 
@@ -14,10 +12,10 @@ localStorage.setItem("movie_list", JSON.stringify(array))
 // const queue_movie = [];
 
 // function addWatchedFilmtoLocalStorage (film ){
-//     localStorage.setItem("watched", JSON.stringify(film))
+//     localStorage.setItem("WATCHED", JSON.stringify(film))
 // }
 // function addQueueFilmtoLocalStorage (film ){
-//     localStorage.setItem("queue", JSON.stringify(film))
+//     localStorage.setItem("QUEUE", JSON.stringify(film))
 // }
  
 // function onAddWatchedClick(evt) {

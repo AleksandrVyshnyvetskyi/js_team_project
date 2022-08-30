@@ -32,18 +32,19 @@ background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url
 .header-wrap {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 43px;
+    align-items: flex-start;
+    margin-bottom: 20px;
     max-width: 320px;
     
         @include tab {
+            
             max-width: 768px;
-    margin-bottom: 31px;
+    margin-bottom: 9px;
         }
     
         @include desk {
             max-width: 1280px;
-margin-bottom: 32px;
+margin-bottom: 10px;
         }
 }
 
@@ -170,7 +171,7 @@ cursor: pointer;
     
         display: block;
         margin-left: auto;
-        margin-top: 10px;
+        margin-top: 30px;
         background-color: transparent;
         border: none;
         cursor: pointer;
