@@ -15,9 +15,10 @@
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal {
-  width: 806px;
-  height: 508px;
+  width: 782px;
+  height: 558px;
   padding: 40px 12px;
+
   // display: flex;
   // justify-content: left;
   background-color: #ffffff;
@@ -29,16 +30,21 @@
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  // @media screen and (min-width: 480px) {
-  //   min-width: 498px;
-  //   min-height: 609px;
-  // }
+  @media screen and (max-width: 768px) {
+    width: 704px;
+    height: 552px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 36px;
+    padding-right: 72px;
+  }
 
-  // @media screen and (min-width: 1280px) {
-  //   min-width: 528px;
-  //   min-height: 581px;
-  //   padding: 40px;
-  // }
+  @media screen and (max-width: 320px) {
+    width: 280px;
+    height: 940px;
+    padding: 40px 20px;
+    padding-top: 48px;
+  }
 }
 .is-hidden {
   visibility: hidden;
@@ -61,8 +67,17 @@
 .film-image {
   // position: absolute;
   width: 375px;
-  height: 432px;
+  height: 478px;
   border-radius: 5px;
+  @media screen and (max-width: 768px) {
+    width: 264px;
+    height: 373px;
+  }
+  @media screen and (max-width: 320px) {
+    width: 240px;
+    height: 357px;
+    padding-bottom: 20px;
+  }
 }
 
 .film-modal-title {
@@ -74,24 +89,54 @@
   line-height: 35px;
   margin-top: 0;
   margin-bottom: 21px;
+  @media screen and (max-width: 320px) {
+    font-size: 20px;
+    line-height: 23px;
+  }
 }
-.container {
+.modal-wrap {
   width: 100%;
   margin: 0 auto;
 }
 .modal-container {
   display: flex;
   flex-direction: row;
+  @media screen and (max-width: 320px) {
+    width: 264px;
+    flex-direction: column;
+  }
 }
 
 .modal-left {
   margin-right: 16px;
+  @media screen and (max-width: 768px) {
+    width: 264px;
+  }
 }
 .modal-right {
   display: block;
+  @media screen and (max-width: 768px) {
+    width: 264px;
+    padding-left: 68px;
+  }
+  @media screen and (max-width: 320px) {
+    padding-left: 0px;
+  }
 }
 .film-info td {
   padding-right: 80px;
+  @media screen and (max-width: 768px) {
+    padding-right: 32px;
+  }
+}
+.film-info {
+  @media screen and (max-width: 768px) {
+    width: 264px;
+  }
+  @media screen and (max-width: 320px) {
+    width: 240px;
+    // height: auto;
+  }
 }
 .table-name {
   font-family: 'Roboto';
@@ -143,12 +188,24 @@
   line-height: 20px;
   width: 391px;
   height: 140px;
-  margin: 0 auto;
   overflow-y: auto;
+  @media screen and (max-width: 768px) {
+    width: 264px;
+    // height: 160px;
+  }
+  @media screen and (max-width: 320px) {
+    width: 240px;
+    // height: 160px;
+  }
 }
 
 .modal-button {
   margin-top: 20px;
+  // display: flex;
+  @media screen and (max-width: 768px) {
+    width: 270px;
+    // height: 160px;
+  }
 }
 
 .btn {
@@ -162,6 +219,12 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+  @media screen and (max-width: 768px) {
+    width: 125px;
+  }
+  @media screen and (max-width: 320px) {
+    width: 115px;
+  }
 }
 .btn:hover {
   border: none;
@@ -170,4 +233,7 @@
 }
 .watched-btn {
   margin-right: 15px;
+  // @media screen and (max-width: 320px) {
+  //   margin-right: 20px;
+  // }
 }
