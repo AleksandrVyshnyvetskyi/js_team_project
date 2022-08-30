@@ -1,12 +1,12 @@
-// import { initializeApp } from 'firebase/app';
-// import {
-//     getAuth,
-//     signInWithEmailAndPassword,
-//     createUserWithEmailAndPassword,
-//     AuthErrorCodes,
-//     onAuthStateChanged,
-//     signOut
-// } from "firebase/auth";
+import { initializeApp } from 'firebase/app';
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    AuthErrorCodes,
+    onAuthStateChanged,
+    signOut
+} from "firebase/auth";
 // Modal for authorisation
 
 const modalOpen = document.querySelector('.modal-open');
@@ -33,7 +33,6 @@ document.addEventListener('click', (e) => {
 });
 
 // Authorication script
-
 const firebaseConfig = {
   apiKey: "AIzaSyAOAAbZA3RU8RhMKF_OMDcBQlQNDXUrEUg",
   authDomain: "filmoteka-team-js-project.firebaseapp.com",
@@ -47,6 +46,17 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 
+const monitorAuthState = async () => {
+    onAuthStateChanged(auth, user => {
+        if (user) {
+            showUserState();
+        } else {
+            showLoginForm();
+        };
+    })
+};
+monitorAuthState();
+
 const createAccount = async () => {
     const loginEmail = document.getElementById('email').value;
     const loginPassword = document.getElementById('password').value;
@@ -56,6 +66,8 @@ const createAccount = async () => {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, loginEmail, loginPassword);
         console.log(userCredential.user);
+        hideLogInError();
+        showUserState();
     } catch (error) {
         console.log(error.name);
         console.log(error.message);
@@ -79,7 +91,7 @@ const logInUser = async () => {
     } catch (error) {
         console.log(error.name);
         console.log(error.message);
-        showEmailError(error);
+        // showEmailError(error);
         showPasswordError(error);
     }
 };
@@ -115,29 +127,29 @@ const showPasswordError = (error) => {
 }
 
 const authState = document.querySelector('.authStatus');
-const registrationBlock = document.querySelector('.registration')
+const registrationBlock = document.querySelector('.registration');
+const loggedInMessage = document.querySelector('.loggedInMessage');
+const logOutBtn = document.getElementById('logOutBtn');
+
 
 const showUserState = () => {
     const loginEmail = document.getElementById('email').value;
     registrationBlock.classList.add('visually-hidden');
+    btnAuth.classList.add('visually-hidden');
+    logOutBtn.classList.remove('visually-hidden');
     authState.classList.remove('visually-hidden');
-    authState.innerHTML = `You are logged in as ${loginEmail}`;
+    loggedInMessage.innerHTML = `You are logged in as <b>${loginEmail}</b>`;
 };
-
+const showLoginForm = () => {
+    registrationBlock.classList.remove('visually-hidden');
+    btnAuth.classList.remove('visually-hidden');
+    logOutBtn.classList.add('visually-hidden');
+    authState.classList.add('visually-hidden');
+    console.log('User logged out!');
+};
 hideLogInError();
 
 //Authentication status
-const logOutBtn = document.querySelector('.logOutBtn');
-const monitorAuthState = async () => {
-    onAuthStateChanged(auth, user => {
-        if (user) {
-            console.log(user);
-        } else {
-
-        };
-    })
-};
-monitorAuthState();
 
 const logOut = async () => {
     await signOut(auth);
