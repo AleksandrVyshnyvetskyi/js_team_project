@@ -15,28 +15,25 @@
     <script type="module" src="./index.js"></script>
   </head>
   <body>
+    <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
+    <include src="./partials/header.html"></include>
+    <include src="./partials/film_container_main.html"></include>
+    <include src="./partials/pagination.html"></include>
+    <include src="./partials/footer.html"></include>
+    <include src="./partials/modal_dev.html"></include>
+    <include src="./partials/authorisation.html"></include>
+    <include src="./partials/modal-film.html"></include>
 
-      <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
-      <include src="./partials/header.html"></include>
-      <include src="./partials/film_container_main.html"></include>
-      <include src="./partials/pagination.html"></include>
-      <include src="./partials/footer.html"></include>
-      <include src="./partials/modal_dev.html"></include>
-      <include src="./partials/authorisation.html"></include>
-      
-      
-      
+    <!-- ================================ JS script list START ================================ -->
+    <script script src="./js/js-modal-devops.js" type="module"></script>
+    <script script src="./js/firebase.js" type="module"></script>
+    <script script src="./js/fetch-films-main.js" type="module"></script>
+    <script script src="./js/search-by-keyword.js" type="module"></script>
+    <script script src="./js/modal-film.js" type="module"></script>
 
-<!-- ================================ JS script list START ================================ -->
-      <script script src="./js/js-modal-devops.js" type="module"></script>
-      <script script src="./js/firebase.js" type="module"></script>
-      <script script src="./js/fetch-films-main.js" type="module"></script>
-      <script script src="./js/search-by-keyword.js" type="module"></script>
-      
-        <!-- Пример использования пагинации  -->
+    <!-- Пример использования пагинации  -->
     <!-- <script script src="./js/example_pagination.js" type="module"></script> -->
-      
 
-<!-- ================================ JS script list END ================================ -->
+    <!-- ================================ JS script list END ================================ -->
   </body>
 </html>
