@@ -62,7 +62,7 @@
 //     const loginPassword = document.getElementById('password').value;
 //     console.log(loginEmail);
 //     console.log(loginPassword);
-    
+   
 //     try {
 //         const userCredential = await createUserWithEmailAndPassword(auth, loginEmail, loginPassword);
 //         console.log(userCredential.user);
@@ -81,8 +81,7 @@
 //     const loginEmail = document.getElementById('email').value;
 //     const loginPassword = document.getElementById('password').value;
 //     console.log(loginEmail);
-//     console.log(loginPassword);
-    
+//     console.log(loginPassword);   
 //     try {
 //         const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
 //         console.log(userCredential.user);
