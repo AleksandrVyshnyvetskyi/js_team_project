@@ -1,4 +1,24 @@
-export function filmMarkup(film) {
+export { filmMarkup };
+
+function genreById([...args]) {
+  const g = localStorage.getItem('GENRES');
+  const genres = JSON.parse(g);
+  let genreName;
+  const array = [...arr];
+  for (let i = 0; i < genres.length; i++) {
+    for (let x = 0; x < array.length; x++) {
+      if (array[x] === genres[i].id) {
+        genreName = genres[i].name;
+        array[x] = genreName;
+      }
+    }
+  }
+  // console.log(array)
+
+  return `${array[0]}, ${array[1]}`;
+}
+
+function filmMarkup(film) {
   const IMG_URL = 'https://image.tmdb.org/t/p/w500';
   return `
   <div class="container">
