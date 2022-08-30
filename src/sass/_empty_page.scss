@@ -1,0 +1,33 @@
+.empty_page{
+    display: none;
+    margin: 30px auto 0;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @include tab{
+        margin: 60px auto 0;
+    }
+
+    &.visible{
+        display: block;
+    }
+
+    & img{
+        margin: 0 auto 20px;
+        border-radius: 100%;
+        width: 70%;
+
+        @include tab {
+            width: 50%;
+        }
+        @include desk {
+            width: 30%;
+        }
+    }
+
+    & p{
+        text-align: center;
+        font-weight: 500;
+        font-size: 18px;
+    }
+}
