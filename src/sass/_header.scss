@@ -36,6 +36,8 @@ background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url
     align-items: flex-start;
     margin-bottom: 12px;
     max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
     @include tab{
         max-width: 768px;
         
