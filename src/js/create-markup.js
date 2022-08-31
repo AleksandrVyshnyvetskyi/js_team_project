@@ -21,7 +21,7 @@ function renderFilmList(films) {
         data-modal-open>
         <img class="card-poster"
         data-id="${film.id}" 
-        src="${film.poster_path === null ? './no_image.jpg'
+        src="${film.poster_path === null ? "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
               : `${IMG_URL}${film.poster_path}`
           }"
         alt="${film.original_name}" loading="lazy">
@@ -42,10 +42,25 @@ function renderMoviesCard(films) {
       .map((film) => {
           let date = film.release_date ?? film.first_air_date ?? null;
           date = (date !== null) ? date.slice(0, 4) : '';
+
+        if (!film.poster_path) {
+          return `
+        <li class="main-container--card"
+        data-modal-open>
+          <img class="card-poster"
+        data-id="${film.id}" 
+        src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" >
+        <div class="card-wrap">
+        <h2 class="card-title" data-id="${film.id}">${film.original_title.toUpperCase() || film.title.toUpperCase() || film.title.toUpperCase()}</h2>
+        <p class="card-info"> ${transformId(film.genre_ids)} | ${date} <span class="card-rating"> ${film.vote_average.toFixed(1)}</span></p>
+         </div>
+    </li>`;
+        };        
+
         return `
         <li class="main-container--card"
         data-modal-open>
-        <img class="card-poster"
+          <img class="card-poster"
         data-id="${film.id}" 
         src="${IMG_URL}${film.poster_path}" 
         alt="${film.original_name}" loading="lazy">
@@ -88,4 +103,3 @@ function transformId([...arr]) {
   }
   return `${array[0]}, ${array[1]}`;
 }
-
