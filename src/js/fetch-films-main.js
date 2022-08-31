@@ -85,11 +85,11 @@ function renderFilmList(films) {
         <li class="main-container--card">
             <img
             class="film-poster"
-             src="${
-               film.poster_path === null
-                 ? 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'
-                 : `${IMG_URL}${film.poster_path}`
-             }"
+            src="${
+              film.poster_path === null
+                ? './no_image.jpg'
+                : `https://image.tmdb.org/t/p/w500${film.poster_path}`
+            }" 
                 alt="${film.original_title}"
                 loading="lazy" data-id="${film.id}">
             <p class="film-info">
