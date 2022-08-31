@@ -96,4 +96,3 @@ function transformId([...arr]) {
   }
   return `${array[0]}, ${array[1]}`;
 }
-
