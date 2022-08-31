@@ -10,50 +10,48 @@ const refs = {
     queue: document.querySelector('.header_btn-queue'),
     containerMovie: document.querySelector('.main-container--card__box'),
     emptyPage: document.querySelector('.empty_page'),
-    paginationPage: document.querySelector('.section__pagination'),
+    paginationPage: document.querySelector('#section__pagination'),
 };
 
 const getMovieStorage = localStorage.getItem('QUEUE_LIST');
 const totalMovieElements = JSON.parse(getMovieStorage);
-const countElpage = 20;
+const countElpage = 5;
 let totalMoviePages = 0;
 
-console.log(totalMovieElements)
 
 refs.queue.addEventListener('click', onQueueClick);
 
-if (totalMovieElements === null) { 
+if (totalMovieElements === null) {
   refs.emptyPage.classList.add('visible');
-    refs.paginationPage.classList.add('hidden');
+  refs.paginationPage.style.display = "none";
   return;
-}
 
-
-
+} 
 
 
 
 function onQueueClick(e) {
     e.preventDefault();
-    //  refs.containerMovie.innerHTML = '';
-    
-
+  refs.containerMovie.innerHTML = '';
   refs.queue.classList.add('current-btn');
   refs.watched.classList.remove('current-btn');
     refs.queue.classList.remove('simple-btn');
     refs.watched.classList.add('simple-btn');
     
-  if (totalMovieElements) {
+  if (totalMovieElements !== null) {
     try {
         paginationLibrary()
        
         refs.emptyPage.classList.remove('visible');
-        // refs.paginationPage.classList.remove('hidden');
+
     } catch (e) {
       console.log(e);
     }
   } else { 
-    return refs.emptyPage.classList.add('visible');
+    refs.emptyPage.classList.add('visible');
+    refs.paginationPage.style.display = "none";
+    
+    return;
   }
 }
 
@@ -74,7 +72,7 @@ function paginationLibrary(page = false) {
     }
     
     totalMoviePages = partMovie.length - 1;
-    console.log(partMovie[queryPage])
+      refs.containerMovie.innerHTML = "";
     renderMoviesCard(partMovie[queryPage]);
     
   if (totalMoviePages > 1) { 
