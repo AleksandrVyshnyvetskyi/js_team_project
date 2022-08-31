@@ -94,9 +94,9 @@ logInBtn.addEventListener('click', logInUser);
 const emailWarningMessage = document.querySelector('.warning-message__email');
 const passwordWarningMessage = document.querySelector('.warning-message__password');
 const hideLogInError = () => {
-    emailWarningMessage.style.display = 'none';
+    // emailWarningMessage.style.display = 'none';
     emailWarningMessage.innerHTML = '';
-    passwordWarningMessage.style.display = 'none';
+    // passwordWarningMessage.style.display = 'none';
     passwordWarningMessage.innerHTML = '';
 };
 
