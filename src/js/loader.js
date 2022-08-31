@@ -1,4 +1,4 @@
- Для встановлення Loader потрібно:
+//  Для встановлення Loader потрібно:
 // 1. Експортуємо функції у свій файл.
 
 //  import { preloaderShow, preloaderShowLonger, hidePreloader } from './loader';
