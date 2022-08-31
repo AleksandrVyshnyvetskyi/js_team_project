@@ -11,7 +11,7 @@ import {
 
 const modalOpen = document.querySelector('.modal-open');
 const modalBox = document.querySelector('.modal-authent__box');
-const btnAuth = document.querySelector('.auth_btn'); 
+const btnAuth = document.querySelector('.auth_btn');
 const closeBtn = document.querySelector('.auth-modal-close');
 
 btnAuth.addEventListener('click', (e) => {
@@ -26,7 +26,7 @@ closeBtn.addEventListener('click', () => {
 });
 
 document.addEventListener('click', (e) => {
-    if(e.target === modalOpen) {
+    if (e.target === modalOpen) {
         modalOpen.classList.remove('active');
         modalBox.classList.remove('active');
     }
@@ -34,14 +34,14 @@ document.addEventListener('click', (e) => {
 
 // Authorication script
 const firebaseConfig = {
-  apiKey: "AIzaSyAOAAbZA3RU8RhMKF_OMDcBQlQNDXUrEUg",
-  authDomain: "filmoteka-team-js-project.firebaseapp.com",
-  databaseURL: "https://filmoteka-team-js-project-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "filmoteka-team-js-project",
-  storageBucket: "filmoteka-team-js-project.appspot.com",
-  messagingSenderId: "48080784167",
-  appId: "1:48080784167:web:4008dc2d03d12f778e7702",
-  measurementId: "G-T8P7HD6DV7"
+    apiKey: "AIzaSyAOAAbZA3RU8RhMKF_OMDcBQlQNDXUrEUg",
+    authDomain: "filmoteka-team-js-project.firebaseapp.com",
+    databaseURL: "https://filmoteka-team-js-project-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "filmoteka-team-js-project",
+    storageBucket: "filmoteka-team-js-project.appspot.com",
+    messagingSenderId: "48080784167",
+    appId: "1:48080784167:web:4008dc2d03d12f778e7702",
+    measurementId: "G-T8P7HD6DV7"
 };
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
@@ -77,7 +77,7 @@ registerBtn.addEventListener('click', createAccount);
 const logInUser = async () => {
     const loginEmail = document.getElementById('email').value;
     const loginPassword = document.getElementById('password').value;
-    
+
     try {
         await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
         hideLogInError();
