@@ -30,7 +30,7 @@
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
     width: 704px;
     height: 552px;
     padding-top: 40px;
@@ -39,9 +39,9 @@
     padding-right: 72px;
   }
 
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
     width: 280px;
-    height: 940px;
+    height: 840px;
     padding: 40px 20px;
     padding-top: 48px;
   }
@@ -69,11 +69,11 @@
   width: 375px;
   height: 478px;
   border-radius: 5px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
     width: 264px;
     height: 373px;
   }
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
     width: 240px;
     height: 357px;
     padding-bottom: 20px;
@@ -89,7 +89,7 @@
   line-height: 35px;
   margin-top: 0;
   margin-bottom: 21px;
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
     font-size: 20px;
     line-height: 23px;
   }
@@ -101,7 +101,7 @@
 .modal-container {
   display: flex;
   flex-direction: row;
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
     width: 264px;
     flex-direction: column;
   }
@@ -109,31 +109,31 @@
 
 .modal-left {
   margin-right: 16px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
     width: 264px;
   }
 }
 .modal-right {
   display: block;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
     width: 264px;
     padding-left: 68px;
   }
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
     padding-left: 0px;
   }
 }
 .film-info td {
   padding-right: 80px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
     padding-right: 32px;
   }
 }
 .film-info {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
     width: 264px;
   }
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
     width: 240px;
     // height: auto;
   }
@@ -189,11 +189,11 @@
   width: 391px;
   height: 140px;
   overflow-y: auto;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
     width: 264px;
     // height: 160px;
   }
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
     width: 240px;
     // height: 160px;
   }
@@ -202,7 +202,7 @@
 .modal-button {
   margin-top: 20px;
   // display: flex;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
     width: 270px;
     // height: 160px;
   }
@@ -219,10 +219,10 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
     width: 125px;
   }
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
     width: 115px;
   }
 }
