@@ -4,10 +4,6 @@ import { outOfModal, escExit, closeModal } from './closeModalFunction';
 
 let ifOpen = '';
 
-// if (!ifOpen) {
-//   document.removeEventListener('click', escExit);
-// }
-
 refs.onBtnOpen.addEventListener('click', onModalOpen);
 refs.onBtnClose.addEventListener('click', closeModal);
 refs.modal.addEventListener('click', outOfModal);
