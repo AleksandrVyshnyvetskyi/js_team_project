@@ -36,11 +36,24 @@ export {renderFilmList};
 ///////////// --функція для створення карток  фільмів в MY LIBRARY----///////
 function renderMoviesCard(films) {
     const filmCards = films
-    .map((film) => {
+      .map((film) => {
+        if (!film.poster_path) {
+          return `
+        <li class="main-container--card"
+        data-modal-open>
+          <img class="card-poster"
+        data-id="${film.id}" 
+        src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" >
+        <div class="card-wrap">
+        <h2 class="card-title" data-id="${film.id}">${film.original_title.toUpperCase() || film.title.toUpperCase() || film.title.toUpperCase()}</h2>
+        <p class="card-info"> ${transformId(film.genre_ids)} | ${(film.release_date || film.first_air_date).slice(0, 4)} <span class="card-rating"> ${film.vote_average.toFixed(1)}</span></p>
+         </div>
+    </li>`;
+        };        
         return `
         <li class="main-container--card"
         data-modal-open>
-        <img class="card-poster"
+          <img class="card-poster"
         data-id="${film.id}" 
         src="${IMG_URL}${film.poster_path}" 
         alt="${film.original_name}" loading="lazy">
