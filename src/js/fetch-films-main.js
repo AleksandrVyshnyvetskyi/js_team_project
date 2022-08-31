@@ -4,8 +4,6 @@ const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 import Pagination from './pagination.js';
 import API from './api-service.js';
 import { addCurrrentMoviesToLocalStorage } from './local-storage';
-import { preloaderShow, preloaderShowLonger, hidePreloader } from './loader';
-import { renderFilmList } from './create-markup';
 
 const refs = {
   containerBox: document.querySelector(`.main-container--card__box`),
@@ -21,7 +19,6 @@ getPopularMovie();
 
 // Фун-ия, которая берет и передает данные по апи, имеет первый! параметр page = false. После параметра page можете передавать свои.
 function getPopularMovie(page = false) {
-  preloaderShowLonger();
   const queryPage = page ? page : 1; // Проверка страниц, обязательно до fetch
   apiService.setPageNumber = queryPage; // Передает текущую страницу в класс api
 
@@ -32,7 +29,6 @@ function getPopularMovie(page = false) {
     pagination.renderPagination(); // Вызов пагинации
 
     renderFilmList(data.results);
-    
   });
 }
 
