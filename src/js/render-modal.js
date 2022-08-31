@@ -47,9 +47,11 @@ function filmMarkup(film) {
       <div class="modal-container">
         <div class="modal-left">
       
-          <img src="${IMG_URL}${film.poster_path}" alt="${
-    film.original_title
-  }" class="film-image" />
+          <img src="${
+            film.poster_path === null
+              ? 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'
+              : `${IMG_URL}${film.poster_path}`
+          }"class="film-image" />
       
         </div>
         <div class="modal-right">
