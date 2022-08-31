@@ -1,5 +1,5 @@
-import { renderMoviesCard } from "./create-markup";
-import { hideLoader, showLoader } from './loader';
+import {  renderFilmList} from "./create-markup";
+ import { preloaderShow, preloaderShowLonger, hidePreloader } from './loader';
 import { addCurrrentMoviesToLocalStorage } from "./local-storage";
 import Pagination from './pagination.js';
 import API from './api-service.js';
@@ -42,6 +42,7 @@ function onSearch(event) {
     refs.errorText.classList.add('is-hidden');
    
     getSearchMovie();
+    preloaderShow();
 
     refs.inputEl.value = "";
 }
@@ -51,7 +52,7 @@ async function getSearchMovie(page = false) {
     const queryPage = page ? page : 1; // Проверка страниц, обязательно до fetch
     apiService.setPageNumber = queryPage; // Передает текущую страницу в класс api
 
-    // showLoader();
+    
     try {
         await apiService.fetchSearchMovie().then(data => {
           if (data.total_pages === 0) {
@@ -64,14 +65,14 @@ async function getSearchMovie(page = false) {
             clearMoviesContainer();
             refs.errorText.classList.add('is-hidden');
             
-            renderMoviesCard(data.results);
+            renderFilmList(data.results);
             addCurrrentMoviesToLocalStorage (data.results) 
-            console.log(data.total_pages);
+            // console.log(data.total_pages);
         });      
     } catch (error) {
         console.log(error)
     } finally {
-        // hideLoader();
+        hidePreloader();
     }
     
 }
