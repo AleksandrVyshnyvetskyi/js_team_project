@@ -5,6 +5,7 @@ import Pagination from './pagination.js';
 import API from './api-service.js';
 import { addCurrrentMoviesToLocalStorage } from './local-storage';
 import { preloaderShow, preloaderShowLonger, hidePreloader } from './loader';
+import { renderFilmList } from './create-markup';
 
 const refs = {
   containerBox: document.querySelector(`.main-container--card__box`),
@@ -56,53 +57,53 @@ const addGenresToLocalStorage = async () => {
 
 addGenresToLocalStorage();
 
-function transformId([...arr]) {
-  const g = localStorage.getItem('GENRES');
-  const genres = JSON.parse(g);
-  let genreName;
-  const array = [...arr];
-  for (let i = 0; i < genres.length; i++) {
-    for (let x = 0; x < array.length; x++) {
-      if (array[x] === genres[i].id) {
-        genreName = genres[i].name;
-        array[x] = genreName;
-      }
-    }
-  }
-  // console.log(array)
+// function transformId([...arr]) {
+//   const g = localStorage.getItem('GENRES');
+//   const genres = JSON.parse(g);
+//   let genreName;
+//   const array = [...arr];
+//   for (let i = 0; i < genres.length; i++) {
+//     for (let x = 0; x < array.length; x++) {
+//       if (array[x] === genres[i].id) {
+//         genreName = genres[i].name;
+//         array[x] = genreName;
+//       }
+//     }
+//   }
+//   // console.log(array)
 
-  if (array.length > 2) {
-    return `${array[0]}, ${array[1]}, Other`;
-  }
-  return `${array[0]}, ${array[1]}`;
-}
+//   if (array.length > 2) {
+//     return `${array[0]}, ${array[1]}, Other`;
+//   }
+//   return `${array[0]}, ${array[1]}`;
+// }
 
-function renderFilmList(films) {
-  const markup = films
-    .map(film => {
-      // console.log(film)
-      return `
-        <li class="main-container--card">
-            <img
-            class="film-poster"
-            src="${
-              film.poster_path === null
-                ? './no_image.jpg'
-                : `https://image.tmdb.org/t/p/w500${film.poster_path}`
-            }" 
-                alt="${film.original_title}"
-                loading="lazy" data-id="${film.id}">
-            <p class="film-info">
-            <h2 class="film-title" data-id="${
-              film.id
-            }">${film.original_title.toUpperCase()}</h2>
-            <p class="more-info"> ${transformId(
-              film.genre_ids
-            )} | ${film.release_date.slice(0, 4)}</p>
-            </p>
-        </li>
-      `;
-    })
-    .join('');
-  refs.containerBox.innerHTML = markup;
-}
+// function renderFilmList(films) {
+//   const markup = films
+//     .map(film => {
+//       // console.log(film)
+//       return `
+//         <li class="main-container--card">
+//             <img
+//             class="film-poster"
+//             src="${
+//               film.poster_path === null
+//                 ? './no_image.jpg'
+//                 : `https://image.tmdb.org/t/p/w500${film.poster_path}`
+//             }" 
+//                 alt="${film.original_title}"
+//                 loading="lazy" data-id="${film.id}">
+//             <p class="film-info">
+//             <h2 class="film-title" data-id="${
+//               film.id
+//             }">${film.original_title.toUpperCase()}</h2>
+//             <p class="more-info"> ${transformId(
+//               film.genre_ids
+//             )} | ${film.release_date.slice(0, 4)}</p>
+//             </p>
+//         </li>
+//       `;
+//     })
+//     .join('');
+//   refs.containerBox.innerHTML = markup;
+// }
