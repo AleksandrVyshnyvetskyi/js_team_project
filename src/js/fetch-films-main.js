@@ -13,11 +13,16 @@ const refs = {
 };
 
 const containerBox = document.querySelector(`.main-container--card__box`);
+const inputEl = document.querySelector('.header_input');
 
-const apiService = new API();
-const pagination = new Pagination();
+const apiService = new API;
+const pagination = new Pagination;
 
 getPopularMovie();
+
+
+
+
 
 // Фун-ия, которая берет и передает данные по апи, имеет первый! параметр page = false. После параметра page можете передавать свои.
 function getPopularMovie(page = false) {
@@ -42,7 +47,6 @@ const searchFilms = async () => {
     `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&language=en-US`
   );
   renderFilmList(response.data.results);
-  // console.log(response.data.results);
   addCurrrentMoviesToLocalStorage(response.data.results);
   return response.data;
 };

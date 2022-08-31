@@ -143,7 +143,7 @@ export default class Pagination {
                 behavior: "smooth"
             });
         
-            this.callback(this.currentPage);
+            this.callbackRun();
             
             
             pagination.classList.remove('hidden');
@@ -157,7 +157,7 @@ export default class Pagination {
             // containerBox.innerHTML = '';
             window.scrollTo({top: 0,behavior: "smooth"});
             this.currentPage -= 1;
-            this.callback(this.currentPage);
+            this.callbackRun();
 
             pagination.classList.remove('hidden');
         }
@@ -169,12 +169,19 @@ export default class Pagination {
             // containerBox.innerHTML = '';
             window.scrollTo({top: 0,behavior: "smooth"});
             this.currentPage += 1;
-            this.callback(this.currentPage);
+            this.callbackRun();
  
             pagination.classList.remove('hidden');
         }
     }
 
+    callbackRun() { 
+        const localCallback = localStorage.getItem('CALLBACK');
+
+        if (localCallback === this.callback.name) { 
+            this.callback(this.currentPage)
+        }
+    }
 
     set setCurrentPage(currentPage) {
         this.currentPage = currentPage;
@@ -183,6 +190,7 @@ export default class Pagination {
         this.totalPages = totalPages;
     }
     set setCallback(callback) {
+        localStorage.setItem('CALLBACK', callback.name)
         this.callback = callback;
     }
 }
