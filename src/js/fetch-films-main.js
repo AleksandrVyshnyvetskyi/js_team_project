@@ -26,12 +26,13 @@ function getPopularMovie(page = false) {
   apiService.setPageNumber = queryPage; // Передает текущую страницу в класс api
 
 
+
   apiService.fetchPopularMovie().then(data => {
     pagination.setCurrentPage = queryPage; // Передает страницу в пагинатор
     pagination.setTotalPages = data.total_pages; // Передает общее кол-во страниц в пагинатор
     pagination.setCallback = getPopularMovie; // Передает ссылку на коллбэк функцию
     pagination.renderPagination(); // Вызов пагинации
-
+    addCurrrentMoviesToLocalStorage(data.results);
     renderFilmList(data.results);
   });
 }
