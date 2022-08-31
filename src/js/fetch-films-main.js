@@ -5,7 +5,7 @@ import Pagination from './pagination.js';
 import API from './api-service.js';
 import { addCurrrentMoviesToLocalStorage } from './local-storage';
 import { preloaderShow, preloaderShowLonger, hidePreloader } from './loader';
-import {renderFilmList} from './create-markup'
+import {renderFilmList} from './create-markup';
 
 const refs = {
   containerBox: document.querySelector(`.main-container--card__box`),
