@@ -78,9 +78,8 @@ function transformId([...arr]) {
   return `${array[0]}, ${array[1]}`;
 }
 
-function renderFilmList(films) {
+function renderFilmList (films){
   const markup = films.map(film => {
-      // console.log(film)
       return `
         <li class="main-container--card">
             <img
