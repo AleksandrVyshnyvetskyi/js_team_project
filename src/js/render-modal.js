@@ -30,12 +30,16 @@ function genreById([...arr]) {
 }
 
 function filmMarkup(film) {
+  const IMG_URL = 'https://image.tmdb.org/t/p/w500';
+
   let aboutOverview = 'No information';
   if (film.overview) {
     aboutOverview = film.overview;
   }
-
-  const IMG_URL = 'https://image.tmdb.org/t/p/w500';
+  // let image = '../images/empty_page.gif';
+  // if (film.poster_path) {
+  //   image = `${IMG_URL}${film.poster_path}`;
+  // }
 
   return `
   <div class="modal-wrap">
@@ -76,8 +80,10 @@ function filmMarkup(film) {
           <p class="about-desc">${aboutOverview}</p>
       </div>
       <div class="modal-button">
-        <button class="btn watched-btn" type="button">ADD TO WATCHED</button>
-        <button class="btn queue-btn" type="button">ADD TO QUEUE</button>
+        <button class="btn watched-btn" type="button" data-add>ADD TO WATCHED</button>
+        <button class="btn queue-btn" type="button" data-add>ADD TO QUEUE</button>
+         <button class="btn watched-btn is-hidden" type="button" data-remove>REMOVE FROM WATCHED</button>
+        <button class="btn queue-btn is-hidden" type="button" data-remove>REMOVE FROM QUEUE</button>
       </div>
           </div>
         </div>
