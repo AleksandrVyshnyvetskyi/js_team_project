@@ -20,9 +20,10 @@ getPopularMovie();
 
 // Фун-ия, которая берет и передает данные по апи, имеет первый! параметр page = false. После параметра page можете передавать свои.
 function getPopularMovie(page = false) {
+//   preloaderShowLonger();
   const queryPage = page ? page : 1; // Проверка страниц, обязательно до fetch
   apiService.setPageNumber = queryPage; // Передает текущую страницу в класс api
-  preloaderShowLonger();
+
 
   apiService.fetchPopularMovie().then(data => {
     pagination.setCurrentPage = queryPage; // Передает страницу в пагинатор
