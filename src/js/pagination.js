@@ -136,7 +136,7 @@ export default class Pagination {
         if (e.target.nodeName === 'BUTTON') {
 
             pagination.classList.add('hidden');
-            containerBox.innerHTML = '';
+            // containerBox.innerHTML = '';
             this.currentPage = e.target.textContent * 1;
             window.scrollTo({
                 top: 0,
@@ -154,7 +154,7 @@ export default class Pagination {
          
         if (this.currentPage > 1) { 
             pagination.classList.add('hidden');
-            containerBox.innerHTML = '';
+            // containerBox.innerHTML = '';
             window.scrollTo({top: 0,behavior: "smooth"});
             this.currentPage -= 1;
             this.callback(this.currentPage);
@@ -166,7 +166,7 @@ export default class Pagination {
     onClickBtnNext() {     
         if (this.currentPage !== this.totalPages) { 
             pagination.classList.add('hidden');
-            containerBox.innerHTML = '';
+            // containerBox.innerHTML = '';
             window.scrollTo({top: 0,behavior: "smooth"});
             this.currentPage += 1;
             this.callback(this.currentPage);
