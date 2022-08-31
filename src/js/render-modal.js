@@ -36,8 +36,9 @@ function filmMarkup(film) {
   }
 
   const IMG_URL = 'https://image.tmdb.org/t/p/w500';
+
   return `
-  <div class="container">
+  <div class="modal-wrap">
       
       <div class="modal-container">
         <div class="modal-left">
