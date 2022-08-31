@@ -7,7 +7,7 @@ import {
     onAuthStateChanged,
     signOut
 } from "firebase/auth";
-// // Modal for authorisation
+// Modal for authorisation
 
 const modalOpen = document.querySelector('.modal-open');
 const modalBox = document.querySelector('.modal-authent__box');
