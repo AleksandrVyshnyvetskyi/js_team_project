@@ -2,7 +2,7 @@ import refs from './refs';
 import { filmMarkup } from './render-modal';
 import { outOfModal, escExit, closeModal } from './closeModalFunction';
 
-// let ifOpen = '';
+let ifOpen = '';
 
 // if (!ifOpen) {
 //   document.removeEventListener('click', escExit);
