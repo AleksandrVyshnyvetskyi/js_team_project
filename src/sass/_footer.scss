@@ -1,3 +1,6 @@
+.footer{
+    background-color: var(--secondary-bg-color);
+}
 .footer__box {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
@@ -9,7 +12,7 @@
 
     padding: 30px;
 
-    background-color: #fff;
+    
     color: #545454;
 
     & div {
@@ -29,8 +32,8 @@
         font-family: 'Roboto', sans-serif;
         font-weight: 400;
         border: none;
-        background-color: white;
         color: #545454;
+        background-color: var(--secondary-bg-color);
         padding: 0;
         cursor: pointer;
         & span {
