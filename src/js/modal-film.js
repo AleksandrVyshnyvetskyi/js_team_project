@@ -1,8 +1,13 @@
-import refs from './refs';
 import { filmMarkup } from './render-modal';
+import refs from './refs';
 import { outOfModal, escExit, closeModal } from './closeModalFunction';
+import { addListener } from "./modal-buttons";
 
 let ifOpen = '';
+
+if (!ifOpen) {
+  document.removeEventListener('click', escExit);
+}
 
 refs.onBtnOpen.addEventListener('click', onModalOpen);
 refs.onBtnClose.addEventListener('click', closeModal);
@@ -14,6 +19,7 @@ function onModalOpen(e) {
     const filmId = Number(e.target.dataset.id);
 
     getFilmById(filmId);
+   addListener(filmId);
   }
   ifOpen = true;
   if (ifOpen) {
