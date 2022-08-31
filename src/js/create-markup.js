@@ -12,7 +12,7 @@ const IMG_URL = "https://image.tmdb.org/t/p/w500"
 function renderFilmList(films) {
     const markup = films
         .map((film) => {
-        console.log(film)
+//         console.log(film)
             return `
             <li class="main-container--card"
         data-modal-open>
