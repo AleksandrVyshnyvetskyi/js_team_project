@@ -1,12 +1,12 @@
-import { filmMarkup } from './render-modal';
 import refs from './refs';
+import { filmMarkup } from './render-modal';
 import { outOfModal, escExit, closeModal } from './closeModalFunction';
 
-let ifOpen = '';
+// let ifOpen = '';
 
-if (!ifOpen) {
-  document.removeEventListener('click', escExit);
-}
+// if (!ifOpen) {
+//   document.removeEventListener('click', escExit);
+// }
 
 refs.onBtnOpen.addEventListener('click', onModalOpen);
 refs.onBtnClose.addEventListener('click', closeModal);
