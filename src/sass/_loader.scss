@@ -14,13 +14,14 @@
     background-color: #1a1817ea;
     z-index: 1001;
     transition: all 200ms linear;
-    opacity: 1;
-    visibility: visible;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   
-    &.done {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
+    &.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: initial;
     }
   }
   
@@ -34,13 +35,14 @@
     justify-content: center;
     z-index: 1001;
   
-    opacity: 1;
-    visibility: visible;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   
-    &.done {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
+    &.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: initial;
     }
   }
   
@@ -54,7 +56,6 @@
   .loader .face:nth-child(1) {
     width: 100%;
     height: 100%;
-    // color: gold;
     color: rgb(221, 201, 19);
     border-color: currentColor transparent transparent currentColor;
     border-width: 0.2em 0.2em 0em 0em;
@@ -65,7 +66,6 @@
   .loader .face:nth-child(2) {
     width: 70%;
     height: 70%;
-    // color: lime;
     color: rgb(145, 255, 0);
   
     border-color: currentColor currentColor transparent transparent;

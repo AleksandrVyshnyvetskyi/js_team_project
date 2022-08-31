@@ -1,5 +1,7 @@
 import refs from "./refs";
 import { addCurrrentMoviesToLocalStorage } from "./local-storage"
+import { transformId } from "./fetch-films-main";
+
 
 
 const IMG_URL = "https://image.tmdb.org/t/p/w500"
@@ -23,7 +25,7 @@ function renderFilmList(films) {
         alt="${film.original_name}" loading="lazy">
         <div class="card-wrap">
         <h2 class="card-title" data-id="${film.id}">${film.original_title.toUpperCase() || film.title.toUpperCase() || film.title.toUpperCase()}</h2>
-        <p class="card-info"> ${transformId(film.genre_ids)} | ${(film.release_date || first_air_date).slice(0,4)} </p>
+        <p class="card-info"> ${transformId(film.genre_ids)} | ${(film.release_date || film.first_air_date).slice(0,4)} </p>
          </div>
     </li>`;
         }).join("");
@@ -45,7 +47,7 @@ function renderMoviesCard(films) {
         alt="${film.original_name}" loading="lazy">
         <div class="card-wrap">
         <h2 class="card-title" data-id="${film.id}">${film.original_title.toUpperCase() || film.title.toUpperCase() || film.title.toUpperCase()}</h2>
-        <p class="card-info"> ${transformId(film.genre_ids)} | ${(film.release_date || first_air_date).slice(0,4)} <span class="card-rating"> ${film.vote_average.toFixed(1)}</span></p>
+        <p class="card-info"> ${transformId(film.genre_ids)} | ${(film.release_date || film.first_air_date).slice(0,4)} <span class="card-rating"> ${film.vote_average.toFixed(1)}</span></p>
          </div>
     </li>`;
         }).join("");
@@ -55,31 +57,3 @@ function renderMoviesCard(films) {
 };
 
 export {renderMoviesCard};
-
-
-///////////// --функція для створення списку жанрів----///////
-function transformId ([...arr]) {
-    const g = localStorage.getItem("GENRES");
-    const genres = JSON.parse(g);
-    let genreName;
-    const array = [...arr]
-    for (let i = 0; i < genres.length; i++) {
-        for (let x = 0; x < array.length; x++) {
-            if (array[x] === genres[i].id) {
-                genreName = genres[i].name;
-                array[x] = genreName
-            };
-        };
-    };
-    
-    console.log(array)
-    if (array.length > 3) {
-
-        return `${array[0]}, ${array[1]}, Other`
-    } else if (array.length > 2) {
-        return `${array[0]}, ${array[1]}, ${array[2]}`
-    } else if (array.length > 1) {
-       return `${array[0]}, ${array[1]}`
-   }
-    return `${array[0]}`
-};
