@@ -20,7 +20,7 @@ getPopularMovie();
 
 // Фун-ия, которая берет и передает данные по апи, имеет первый! параметр page = false. После параметра page можете передавать свои.
 function getPopularMovie(page = false) {
-//   preloaderShowLonger();
+  preloaderShowLonger();
   const queryPage = page ? page : 1; // Проверка страниц, обязательно до fetch
   apiService.setPageNumber = queryPage; // Передает текущую страницу в класс api
 
@@ -82,32 +82,32 @@ function transformId([...arr]) {
   return `${array[0]}, ${array[1]}`;
 }
 
-function renderFilmList (films){
-  const markup = films.map(film => {
-      return `
-        <li class="main-container--card">
-            <img
-            class="film-poster"
-            src="${
-              film.poster_path === null
-                ? './no_image.jpg'
-                : `https://image.tmdb.org/t/p/w500${film.poster_path}`
-            }" 
-                alt="${film.original_title}"
-                loading="lazy" data-id="${film.id}">
-            <p class="film-info">
-            <h2 class="film-title" data-id="${
-              film.id
-            }">${film.original_title.toUpperCase()}</h2>
-            <p class="more-info"> ${transformId(
-              film.genre_ids
-            )} | ${film.release_date.slice(0, 4)}</p>
-            </p>
-        </li>
-      `;
-    })
-    .join('');
-  refs.containerBox.innerHTML = markup;
-}
+// function renderFilmList (films){
+//   const markup = films.map(film => {
+//       return `
+//         <li class="main-container--card">
+//             <img
+//             class="film-poster"
+//             src="${
+//               film.poster_path === null
+//                 ? './no_image.jpg'
+//                 : `https://image.tmdb.org/t/p/w500${film.poster_path}`
+//             }" 
+//                 alt="${film.original_title}"
+//                 loading="lazy" data-id="${film.id}">
+//             <p class="film-info">
+//             <h2 class="film-title" data-id="${
+//               film.id
+//             }">${film.original_title.toUpperCase()}</h2>
+//             <p class="more-info"> ${transformId(
+//               film.genre_ids
+//             )} | ${film.release_date.slice(0, 4)}</p>
+//             </p>
+//         </li>
+//       `;
+//     })
+//     .join('');
+//   refs.containerBox.innerHTML = markup;
+// }
 
 export {transformId}
