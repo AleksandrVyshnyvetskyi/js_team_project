@@ -39,7 +39,7 @@
     padding-right: 72px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     width: 280px;
     height: 840px;
     padding: 40px 20px;
@@ -73,7 +73,7 @@
     width: 264px;
     height: 373px;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     width: 240px;
     height: 357px;
     padding-bottom: 20px;
@@ -94,7 +94,7 @@
     width: 300px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     width: 265px;
     font-size: 20px;
     line-height: 23px;
@@ -107,7 +107,7 @@
 .modal-container {
   display: flex;
   flex-direction: row;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     width: 264px;
     flex-direction: column;
   }
@@ -125,7 +125,7 @@
     width: 264px;
     padding-left: 68px;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     padding-left: 0px;
   }
 }
@@ -139,7 +139,7 @@
   @media screen and (max-width: 1200px) {
     width: 264px;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     width: 240px;
     // height: auto;
   }
@@ -199,7 +199,7 @@
     width: 264px;
     height: 100px;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     width: 240px;
     // height: 160px;
   }
@@ -228,7 +228,7 @@
   @media screen and (max-width: 1200px) {
     width: 125px;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     width: 115px;
   }
 }
