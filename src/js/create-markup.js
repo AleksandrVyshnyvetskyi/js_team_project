@@ -1,6 +1,5 @@
 import refs from "./refs";
 import { addCurrrentMoviesToLocalStorage } from "./local-storage"
-import { transformId } from "./fetch-films-main";
 
 
 
@@ -57,3 +56,31 @@ function renderMoviesCard(films) {
 };
 
 export {renderMoviesCard};
+
+
+function transformId([...arr]) {
+  const g = localStorage.getItem('GENRES');
+  const genres = JSON.parse(g);
+  let genreName;
+  const array = [...arr];
+  for (let i = 0; i < genres.length; i++) {
+    for (let x = 0; x < array.length; x++) {
+      if (array[x] === genres[i].id) {
+        genreName = genres[i].name;
+        array[x] = genreName;
+      }
+    }
+  }
+  // console.log(array)
+
+  if (array.length > 2 || array.length === 3) {
+    return `${array[0]}, ${array[1]}, Other`;
+  } else if (array.length === 1) {
+        return `${array[0]}`
+  }
+  else if (array.length === 0) {
+    return `No genre`;
+  }
+  return `${array[0]}, ${array[1]}`;
+}
+
