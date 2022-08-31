@@ -1,5 +1,7 @@
 
 // ==========================================================================
+import { outOfModal, escExit, closeModal } from './closeModalFunction';
+
 const modalOpen = document.querySelector('.modal-open');
 const modalBox = document.querySelector('.modal-dev__box ');
 const btnFooter = document.querySelectorAll('.footer__btn'); 
@@ -16,6 +18,7 @@ btnFooter.forEach((button) => {
 closeBtn.addEventListener('click',() => {
     modalOpen.classList.remove('active');
     modalBox.classList.remove('active');
+    document.addEventListener('keydown', escExit);
 });
 
 document.addEventListener('click', (e) => {

@@ -1,79 +1,76 @@
-import refs from './refs';
-import { addCurrrentMoviesToLocalStorage } from './local-storage';
+import refs from "./refs";
+import { addCurrrentMoviesToLocalStorage } from "./local-storage"
 
-const IMG_URL = 'https://image.tmdb.org/t/p/w500';
+
+
+const IMG_URL = "https://image.tmdb.org/t/p/w500"
+
+
+
 
 ///////////// --функція для створення карток популярних фільмів на головну сторінку----///////
 function renderFilmList(films) {
-  const markup = films
-    .map(film => {
-      console.log(film);
-      return `
+    const markup = films
+        .map((film) => {
+//         console.log(film)
+            return `
             <li class="main-container--card"
         data-modal-open>
         <img class="card-poster"
         data-id="${film.id}" 
-        src="${
-          film.poster_path === null
-            ? './no_image.jpg'
-            : `${IMG_URL}${film.poster_path}`
-        }"
+        src="${film.poster_path === null ? "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+              : `${IMG_URL}${film.poster_path}`
+          }"
         alt="${film.original_name}" loading="lazy">
         <div class="card-wrap">
-        <h2 class="card-title" data-id="${film.id}">${
-        film.original_title.toUpperCase() ||
-        film.title.toUpperCase() ||
-        film.title.toUpperCase()
-      }</h2>
-        <p class="card-info"> ${transformId(film.genre_ids)} | ${(
-        film.release_date || first_air_date
-      ).slice(0, 4)} </p>
-         </div>
+        <h2 class="card-title" data-id="${film.id}">${film.original_title.toUpperCase() || film.title.toUpperCase() || film.title.toUpperCase()}</h2>
+        <p class="card-info"> ${transformId(film.genre_ids)} | ${(film.release_date || film.first_air_date).slice(0,4)} </p>
+        </div>
     </li>`;
-    })
-    .join('');
-  refs.containerBox.innerHTML = markup;
+        }).join("");
+refs.containerBox.innerHTML = markup;
 }
 
-export { renderFilmList };
+export {renderFilmList};
 
 ///////////// --функція для створення карток  фільмів в MY LIBRARY----///////
 function renderMoviesCard(films) {
-  const filmCards = films
-    .map(film => {
-      return `
+    const filmCards = films
+      .map((film) => {
+        if (!film.poster_path) {
+          return `
         <li class="main-container--card"
         data-modal-open>
-        <img class="card-poster"
+          <img class="card-poster"
         data-id="${film.id}" 
-         src="${
-           film.poster_path === null
-             ? 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'
-             : `${IMG_URL}${film.poster_path}`
-         }"
-        alt="${film.original_name}" loading="lazy">
+        src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" >
         <div class="card-wrap">
-        <h2 class="card-title" data-id="${film.id}">${
-        film.original_title.toUpperCase() ||
-        film.title.toUpperCase() ||
-        film.title.toUpperCase()
-      }</h2>
-        <p class="card-info"> ${transformId(film.genre_ids)} | ${(
-        film.release_date || first_air_date
-      ).slice(0, 4)} <span class="card-rating"> ${film.vote_average.toFixed(
-        1
-      )}</span></p>
+        <h2 class="card-title" data-id="${film.id}">${film.original_title.toUpperCase() || film.title.toUpperCase() || film.title.toUpperCase()}</h2>
+        <p class="card-info"> ${transformId(film.genre_ids)} | ${(film.release_date || film.first_air_date).slice(0, 4)} <span class="card-rating"> ${film.vote_average.toFixed(1)}</span></p>
          </div>
     </li>`;
-    })
-    .join('');
+        };        
+        return `
+        <li class="main-container--card"
+        data-modal-open>
+          <img class="card-poster"
+        data-id="${film.id}" 
+        src="${IMG_URL}${film.poster_path}" 
+        alt="${film.original_name}" loading="lazy">
+        <div class="card-wrap">
+        <h2 class="card-title" data-id="${film.id}">${film.original_title.toUpperCase() || film.title.toUpperCase() || film.title.toUpperCase()}</h2>
+        <p class="card-info"> ${transformId(film.genre_ids)} | ${(film.release_date || film.first_air_date).slice(0,4)} <span class="card-rating"> ${film.vote_average.toFixed(1)}</span></p>
+         </div>
+    </li>`;
+        }).join("");
+    
+    refs.moviesContainer.insertAdjacentHTML('beforeend', filmCards);
+    
+};
 
-  refs.moviesContainer.insertAdjacentHTML('beforeend', filmCards);
-}
+export {renderMoviesCard};
 
-export { renderMoviesCard };
 
-///////////// --функція для створення списку жанрів----///////
 function transformId([...arr]) {
   const g = localStorage.getItem('GENRES');
   const genres = JSON.parse(g);
@@ -87,14 +84,15 @@ function transformId([...arr]) {
       }
     }
   }
+  // console.log(array)
 
-  console.log(array);
-  if (array.length > 3) {
+  if (array.length > 2 || array.length === 3) {
     return `${array[0]}, ${array[1]}, Other`;
-  } else if (array.length > 2) {
-    return `${array[0]}, ${array[1]}, ${array[2]}`;
-  } else if (array.length > 1) {
-    return `${array[0]}, ${array[1]}`;
+  } else if (array.length === 1) {
+        return `${array[0]}`
   }
-  return `${array[0]}`;
+  else if (array.length === 0) {
+    return `No genre`;
+  }
+  return `${array[0]}, ${array[1]}`;
 }

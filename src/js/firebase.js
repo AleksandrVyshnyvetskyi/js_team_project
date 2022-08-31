@@ -7,11 +7,11 @@ import {
     onAuthStateChanged,
     signOut
 } from "firebase/auth";
-// // Modal for authorisation
+// Modal for authorisation
 
 const modalOpen = document.querySelector('.modal-open');
 const modalBox = document.querySelector('.modal-authent__box');
-const btnAuth = document.querySelector('.auth_btn'); 
+const btnAuth = document.querySelector('.auth_btn');
 const closeBtn = document.querySelector('.auth-modal-close');
 
 btnAuth.addEventListener('click', (e) => {
@@ -26,7 +26,7 @@ closeBtn.addEventListener('click', () => {
 });
 
 document.addEventListener('click', (e) => {
-    if(e.target === modalOpen) {
+    if (e.target === modalOpen) {
         modalOpen.classList.remove('active');
         modalBox.classList.remove('active');
     }
@@ -34,14 +34,14 @@ document.addEventListener('click', (e) => {
 
 // Authorication script
 const firebaseConfig = {
-  apiKey: "AIzaSyAOAAbZA3RU8RhMKF_OMDcBQlQNDXUrEUg",
-  authDomain: "filmoteka-team-js-project.firebaseapp.com",
-  databaseURL: "https://filmoteka-team-js-project-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "filmoteka-team-js-project",
-  storageBucket: "filmoteka-team-js-project.appspot.com",
-  messagingSenderId: "48080784167",
-  appId: "1:48080784167:web:4008dc2d03d12f778e7702",
-  measurementId: "G-T8P7HD6DV7"
+    apiKey: "AIzaSyAOAAbZA3RU8RhMKF_OMDcBQlQNDXUrEUg",
+    authDomain: "filmoteka-team-js-project.firebaseapp.com",
+    databaseURL: "https://filmoteka-team-js-project-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "filmoteka-team-js-project",
+    storageBucket: "filmoteka-team-js-project.appspot.com",
+    messagingSenderId: "48080784167",
+    appId: "1:48080784167:web:4008dc2d03d12f778e7702",
+    measurementId: "G-T8P7HD6DV7"
 };
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
@@ -60,17 +60,14 @@ monitorAuthState();
 const createAccount = async () => {
     const loginEmail = document.getElementById('email').value;
     const loginPassword = document.getElementById('password').value;
-    console.log(loginEmail);
-    console.log(loginPassword);
-   
+
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, loginEmail, loginPassword);
         console.log(userCredential.user);
         hideLogInError();
         showUserState();
     } catch (error) {
-        console.log(error.name);
-        console.log(error.message);
+        showAuthError(error);
     }
 };
 
@@ -80,18 +77,13 @@ registerBtn.addEventListener('click', createAccount);
 const logInUser = async () => {
     const loginEmail = document.getElementById('email').value;
     const loginPassword = document.getElementById('password').value;
-    console.log(loginEmail);
-    console.log(loginPassword);   
+
     try {
-        const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
-        console.log(userCredential.user);
+        await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
         hideLogInError();
         showUserState();
     } catch (error) {
-        console.log(error.name);
-        console.log(error.message);
-        // showEmailError(error);
-        showPasswordError(error);
+        showAuthError(error);
     }
 };
 
@@ -99,7 +91,7 @@ const logInBtn = document.querySelector('#logInBtn');
 logInBtn.addEventListener('click', logInUser);
 
 //LogIn mistake
-const emailWarningMessage = document.querySelector('.warning-message__email')
+const emailWarningMessage = document.querySelector('.warning-message__email');
 const passwordWarningMessage = document.querySelector('.warning-message__password');
 const hideLogInError = () => {
     emailWarningMessage.style.display = 'none';
@@ -107,23 +99,29 @@ const hideLogInError = () => {
     passwordWarningMessage.style.display = 'none';
     passwordWarningMessage.innerHTML = '';
 };
-const showEmailError = (error) => {
-    emailWarningMessage.style.display = 'inline-block';
-    if (error.code === AuthErrorCodes.CREDENTIAL_ALREADY_IN_USE) {
-        emailWarningMessage.innerHTML = 'That email already in use.';
-    } else {
-        emailWarningMessage.innerHTML = `Error: ${error.message}`;
-    };
-};
 
-const showPasswordError = (error) => {
-    passwordWarningMessage.style.display = 'inline-block';
-    if (error.code === AuthErrorCodes.INVALID_PASSWORD) {
+const showAuthError = (error) => {
+    const loginPassword = document.getElementById('password').value;
+    if (error.code === AuthErrorCodes.EMAIL_EXISTS) {
+        emailWarningMessage.style.display = 'inline-block';
+        emailWarningMessage.innerHTML = 'The email address is already in use by another account.';
+    } else if (error.code === AuthErrorCodes.INVALID_EMAIL) {
+        emailWarningMessage.style.display = 'inline-block';
+        emailWarningMessage.innerHTML = 'The email address is badly formatted.';
+    } else if (error.code === AuthErrorCodes.INVALID_PASSWORD) {
+        passwordWarningMessage.style.display = 'inline-block';
         passwordWarningMessage.innerHTML = 'Wrong password. Try again, please.';
+    } else if (error.code === AuthErrorCodes.WEAK_PASSWORD) {
+        passwordWarningMessage.style.display = 'inline-block';
+        passwordWarningMessage.innerHTML = 'Password must be at least 6 characters long.';
+    } else if (loginPassword.trim() === "") {
+        passwordWarningMessage.style.display = 'inline-block';
+        passwordWarningMessage.innerHTML = 'Password is required to Sign Up/LogIn.';
     } else {
-        passwordWarningMessage.innerHTML = `Error: ${error.message}`;
-    };
-}
+        emailWarningMessage.style.display = 'inline-block';
+        emailWarningMessage.innerHTML = 'Something went wrong. Try again, please!';
+    }
+};
 
 const authState = document.querySelector('.authStatus');
 const registrationBlock = document.querySelector('.registration');
@@ -144,7 +142,6 @@ const showLoginForm = () => {
     btnAuth.classList.remove('visually-hidden');
     logOutBtn.classList.add('visually-hidden');
     authState.classList.add('visually-hidden');
-    console.log('User logged out!');
 };
 hideLogInError();
 
