@@ -1,4 +1,4 @@
-// Для встановлення Loader потрібно:
+ Для встановлення Loader потрібно:
 // 1. Експортуємо функції у свій файл.
 
 //  import { preloaderShow, preloaderShowLonger, hidePreloader } from './loader';
@@ -19,9 +19,9 @@ const preloader = document.getElementById('preloader');
 function preloaderShow() {
     preloader.classList.remove('done');
     };
-    
-    
-  
+
+
+
   function hidePreloader() {
     preloader.classList.add('done');
   };
@@ -33,5 +33,5 @@ function preloaderShow() {
         preloader.classList.add('done');
     }, 700);
 };
-  
+
   export { preloaderShow, preloaderShowLonger, hidePreloader };

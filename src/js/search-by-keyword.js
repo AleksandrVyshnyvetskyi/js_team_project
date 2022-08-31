@@ -1,6 +1,8 @@
-import axios from "axios";
 import { renderMoviesCard } from "./create-markup";
 import { hideLoader, showLoader } from './loader';
+import { addCurrrentMoviesToLocalStorage } from "./local-storage";
+import Pagination from './pagination.js';
+import API from './api-service.js';
 
 
 const refs = {
@@ -10,53 +12,68 @@ const refs = {
     errorText: document.querySelector('.header_error-msg'),
 };
 
+const apiService = new API;
+const pagination = new Pagination;
 
+///////винесено в api-service
+// let searchQuery = '';
 
-///////Буде винесено в інший файл
-let searchQuery = '';
+// const BASE_URL = `https://api.themoviedb.org/3/search/movie`;
+// const KEY = `2994e3a31c3cad99fd99bf3fe61d916f`;
 
-const BASE_URL = `https://api.themoviedb.org/3/search/movie`;
-const KEY = `2994e3a31c3cad99fd99bf3fe61d916f`;
-
-async function fetchSearchMovie(searchQuery) {
-    return await axios.get(`${BASE_URL}?api_key=${KEY}&language=en-US&query=${searchQuery}`)
-        .then(response => response.data);
-}
+// async function fetchSearchMovie(searchQuery) {
+//     return await axios.get(`${BASE_URL}?api_key=${KEY}&language=en-US&query=${searchQuery}`)
+//         .then(response => response.data);
+// }
 ///////////
 
 refs.searchForm.addEventListener('submit', onSearch);
 
-async function onSearch(event) {
+function onSearch(event) {
     
     event.preventDefault();
+    apiService.inputQuery = event.currentTarget.elements.query.value.trim();
 
-    searchQuery = event.currentTarget.elements.query.value.trim();
-    // console.log(searchQuery);
-
-    refs.errorText.classList.add('is-hidden');
+    if (refs.inputEl.value === "") {
+         return refs.errorText.classList.remove('is-hidden');
+    }
     
-
-    if (searchQuery === '') {
-        return refs.errorText.classList.remove('is-hidden');
-    };
+    // console.log(searchQuery);
+    refs.errorText.classList.add('is-hidden');
    
-    try {
-        const movies = await fetchSearchMovie(searchQuery);
-
-        if (movies.total_pages === 0) {
-             return refs.errorText.classList.remove('is-hidden');
-        };
-
-        clearMoviesContainer();
-        refs.errorText.classList.add('is-hidden');
-        renderMoviesCard(movies.results);
-        addCurrrentMoviesToLocalStorage (movies.results) 
-        console.log(movies.results);
-        
-                
-    } catch (error) { console.log(error) };
+    getSearchMovie();
 
     refs.inputEl.value = "";
+}
+
+async function getSearchMovie(page = false) {
+    
+    const queryPage = page ? page : 1; // Проверка страниц, обязательно до fetch
+    apiService.setPageNumber = queryPage; // Передает текущую страницу в класс api
+
+    // showLoader();
+    try {
+        await apiService.fetchSearchMovie().then(data => {
+          if (data.total_pages === 0) {
+             return refs.errorText.classList.remove('is-hidden');
+           };
+            pagination.setCurrentPage = queryPage; // Передает страницу в пагинатор
+            pagination.setTotalPages = data.total_pages; // Передает общее кол-во страниц в пагинатор
+            pagination.setCallback = getSearchMovie; // Передает ссылку на коллбэк функцию 
+            pagination.renderPagination(); // Вызов пагинации
+            clearMoviesContainer();
+            refs.errorText.classList.add('is-hidden');
+            
+            renderMoviesCard(data.results);
+            addCurrrentMoviesToLocalStorage (data.results) 
+            console.log(data.total_pages);
+        });      
+    } catch (error) {
+        console.log(error)
+    } finally {
+        // hideLoader();
+    }
+    
 }
 
 ///////////// --функція перенесена в файл create-markup----///////
@@ -107,6 +124,6 @@ async function onSearch(event) {
 
 
 function clearMoviesContainer() {
-  refs.moviesContainer.innerHTML = '';
+    refs.moviesContainer.innerHTML = "";
 }
 

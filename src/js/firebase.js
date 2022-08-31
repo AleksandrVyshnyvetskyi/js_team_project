@@ -7,7 +7,7 @@ import {
     onAuthStateChanged,
     signOut
 } from "firebase/auth";
-// Modal for authorisation
+// // Modal for authorisation
 
 const modalOpen = document.querySelector('.modal-open');
 const modalBox = document.querySelector('.modal-authent__box');
@@ -62,14 +62,13 @@ const createAccount = async () => {
     const loginPassword = document.getElementById('password').value;
     console.log(loginEmail);
     console.log(loginPassword);
-    
+   
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, loginEmail, loginPassword);
         console.log(userCredential.user);
         hideLogInError();
         showUserState();
     } catch (error) {
-        
         console.log(error.name);
         console.log(error.message);
     }
@@ -82,8 +81,7 @@ const logInUser = async () => {
     const loginEmail = document.getElementById('email').value;
     const loginPassword = document.getElementById('password').value;
     console.log(loginEmail);
-    console.log(loginPassword);
-    
+    console.log(loginPassword);   
     try {
         const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
         console.log(userCredential.user);

@@ -17,9 +17,11 @@ export default class API {
     
 
 
-     async fetchSearchMovie() { 
-        const response = fetch(`https://api.themoviedb.org/3//movie/5?${this.API_KEY}&page=${this.pageNumber}`)
-        const data = response.then((r) => r.json());
+    async fetchSearchMovie() { 
+         const response = fetch(`${this.BASE_URL}search/movie?${this.API_KEY}&query=${this.searchQuery}&page=${this.pageNumber}`)
+         
+         const data = response.then((r) => r.json());
+        
         return data;  
     }
 
