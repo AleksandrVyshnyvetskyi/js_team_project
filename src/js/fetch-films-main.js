@@ -71,8 +71,13 @@ function transformId([...arr]) {
   }
   // console.log(array)
 
-  if (array.length > 2) {
+  if (array.length > 2 || array.length === 3) {
     return `${array[0]}, ${array[1]}, Other`;
+  } else if (array.length === 1) {
+        return `${array[0]}`
+  }
+  else if (array.length === 0) {
+    return `No genre`;
   }
   return `${array[0]}, ${array[1]}`;
 }
@@ -104,3 +109,5 @@ function renderFilmList (films){
     .join('');
   refs.containerBox.innerHTML = markup;
 }
+
+export {transformId}
