@@ -89,7 +89,13 @@
   line-height: 35px;
   margin-top: 0;
   margin-bottom: 21px;
+  width: 330px;
+  @media screen and (max-width: 1200px) {
+    width: 300px;
+  }
+
   @media screen and (max-width: 768px) {
+    width: 265px;
     font-size: 20px;
     line-height: 23px;
   }
@@ -187,11 +193,11 @@
   font-size: 12px;
   line-height: 20px;
   width: 391px;
-  height: 140px;
+  height: 130px;
   overflow-y: auto;
   @media screen and (max-width: 1200px) {
     width: 264px;
-    // height: 160px;
+    height: 100px;
   }
   @media screen and (max-width: 768px) {
     width: 240px;
@@ -200,7 +206,7 @@
 }
 
 .modal-button {
-  margin-top: 20px;
+  margin-top: 10px;
   // display: flex;
   @media screen and (max-width: 1200px) {
     width: 270px;
