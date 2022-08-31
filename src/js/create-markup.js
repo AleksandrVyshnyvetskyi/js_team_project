@@ -23,7 +23,7 @@ function renderFilmList(films) {
         alt="${film.original_name}" loading="lazy">
         <div class="card-wrap">
         <h2 class="card-title" data-id="${film.id}">${film.original_title.toUpperCase() || film.title.toUpperCase() || film.title.toUpperCase()}</h2>
-        <p class="card-info"> ${transformId(film.genre_ids)} | ${(film.release_date || first_air_date).slice(0,4)} </p>
+        <p class="card-info"> ${transformId(film.genre_ids)} | ${(film.release_date || film.first_air_date).slice(0,4)} </p>
          </div>
     </li>`;
         }).join("");
@@ -45,7 +45,7 @@ function renderMoviesCard(films) {
         alt="${film.original_name}" loading="lazy">
         <div class="card-wrap">
         <h2 class="card-title" data-id="${film.id}">${film.original_title.toUpperCase() || film.title.toUpperCase() || film.title.toUpperCase()}</h2>
-        <p class="card-info"> ${transformId(film.genre_ids)} | ${(film.release_date || first_air_date).slice(0,4)} <span class="card-rating"> ${film.vote_average.toFixed(1)}</span></p>
+        <p class="card-info"> ${transformId(film.genre_ids)} | ${(film.release_date || film.first_air_date).slice(0,4)} <span class="card-rating"> ${film.vote_average.toFixed(1)}</span></p>
          </div>
     </li>`;
         }).join("");
