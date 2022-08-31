@@ -95,10 +95,11 @@ input{
 .header_input{
     background-color:transparent;
     border: none;
-    @include desk{
-    width: 383px;
     color: white;
     outline: none;
+    @include desk{
+    width: 383px;
+  
     }
    
     // outline: 1px solid orange;
