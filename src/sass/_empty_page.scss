@@ -31,3 +31,11 @@
         font-size: 18px;
     }
 }
+
+.section__pagination{
+    
+    display: block;
+    &.hidden{
+        display: none;
+    }
+}
