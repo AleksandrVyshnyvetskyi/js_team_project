@@ -225,7 +225,6 @@ export function addWathcedListener(filmId) {
             
         }
     }
-}
 
 function movieOfWatchedList(filmid) {
     const watched_list = localStorage.getItem(WATCHED_LIST_KEY);
