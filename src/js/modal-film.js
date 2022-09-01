@@ -1,8 +1,8 @@
 import { filmMarkup } from './render-modal';
 import refs from './refs';
 import { outOfModal, escExit, closeModal } from './closeModalFunction';
-// import { addListener } from './modal-buttons';
-import   { addWathcedListener, addQueueListener } from "./modal-buttons";
+import { addListener } from './modal-buttons';
+// import   { addWathcedListener, addQueueListener } from "./modal-buttons";
 
 let ifOpen = '';
 
