@@ -1,7 +1,8 @@
 import { filmMarkup } from './render-modal';
 import refs from './refs';
 import { outOfModal, escExit, closeModal } from './closeModalFunction';
-import { addListener } from "./modal-buttons";
+import { addWathcedListener, addQueueListener } from "./modal-buttons";
+
 
 let ifOpen = '';
 
@@ -19,7 +20,8 @@ function onModalOpen(e) {
     const filmId = Number(e.target.dataset.id);
 
     getFilmById(filmId);
-   addListener(filmId);
+    addWathcedListener(filmId);
+    addQueueListener(filmId);
   }
   ifOpen = true;
   if (ifOpen) {
