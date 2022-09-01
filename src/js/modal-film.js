@@ -23,8 +23,7 @@ function onModalOpen(e) {
     getFilmById(filmId, 'WATCHED_LIST');
     getFilmById(filmId, 'QUEUE_LIST');
 
-    addWathcedListener(filmId);
-    addQueueListener(filmId);
+    addListener(filmId);
     document.body.style.overflowY = 'hidden';
   }
   ifOpen = true;
