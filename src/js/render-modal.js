@@ -82,10 +82,10 @@ function filmMarkup(film) {
           <p class="about-desc">${aboutOverview}</p>
       </div>
       <div class="modal-button">
-        <button class="btn watched-btn" type="button" data-add>ADD TO WATCHED</button>
-        <button class="btn queue-btn" type="button" data-add>ADD TO QUEUE</button>
-         <button class="btn watched-btn is-hidden" type="button" data-remove>REMOVE FROM WATCHED</button>
-        <button class="btn queue-btn is-hidden" type="button" data-remove>REMOVE FROM QUEUE</button>
+        <button class="btn watched-btn" type="button" data-addwatched>ADD TO WATCHED</button>
+         <button class="btn watched-btn is-hidden" type="button" data-removewatched>REMOVE FROM WATCHED</button>
+        <button class="btn queue-btn" type="button" data-addqueue>ADD TO QUEUE</button>
+        <button class="btn queue-btn is-hidden" type="button" data-removequeue>REMOVE FROM QUEUE</button>
       </div>
           </div>
         </div>

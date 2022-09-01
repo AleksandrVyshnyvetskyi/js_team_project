@@ -5,4 +5,6 @@ localStorage.setItem("MOVIE_LIST", JSON.stringify(array))
 };
 
 
+
 export { addCurrrentMoviesToLocalStorage };
+
