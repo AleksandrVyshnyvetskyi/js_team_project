@@ -11,7 +11,7 @@ const IMG_URL = "https://image.tmdb.org/t/p/w500"
 ///////////// --функція для створення карток популярних фільмів на головну сторінку----///////
 function renderFilmList(films) {
   refs.containerBox.innerHTML = '';
-​
+
     const markup = films
       .map((film) => {
             let date = film.release_date ?? film.first_air_date ?? null;
@@ -20,7 +20,7 @@ function renderFilmList(films) {
             let posterPath = ``
             if(film.poster_path){posterPath=`${IMG_URL}${film.poster_path}`}
             else{posterPath="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"}
-​
+
             return `
             <li class="main-container--card"
         data-modal-open>
