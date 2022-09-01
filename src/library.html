@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./images/svg/favicon.svg" type="image/x-icon">
+    <link rel="icon" href="./images/svg/favicon.svg" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,18 +17,24 @@
   <body>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
     <include src="./partials/header-libr.html"></include>
-    <include src="./partials/film-container-library.html"></include>
-    <include src="./partials/pagination.html"></include>
+    <div class="library-box">
+      <include src="./partials/film-container-library.html"></include>
+      <include src="./partials/pagination.html"></include>
+    </div>
     <include src="./partials/footer.html"></include>
     <include src="./partials/modal_dev.html"></include>
     <include src="./partials/authorisation.html"></include>
     <include src="./partials/loader.html"></include>
+    <!-- ================================ Modal must be the last   ================================ -->
+    <include src="./partials/modal-film.html"></include>
 
     <!-- ================================ JS script list START ================================ -->
     <script src="./js/js-modal-devops.js" type="module"></script>
     <script type="module" src="./js/queue-list.js"></script>
     <script type="module" src="./js/watched-list.js"></script>
-    <script script src="./js/firebase.js" type="module"></script>
+    <!-- <script script src="./js/firebase.js" type="module"></script> -->
+    <!-- ================================ Modal must be the last   ================================ -->
+    <script src="./js/modal-film.js" type="module"></script>
     <!-- ================================ JS script list END ================================ -->
   </body>
 </html>

@@ -65,7 +65,7 @@ async function getSearchMovie(page = false) {
             
              renderFilmList(data.results);
             addCurrrentMoviesToLocalStorage (data.results) 
-            console.log(data.total_pages);
+            // console.log(data.total_pages);
         });      
     } catch (error) {
         console.log(error)

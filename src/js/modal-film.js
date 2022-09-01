@@ -22,6 +22,7 @@ function onModalOpen(e) {
     getFilmById(filmId);
     addWathcedListener(filmId);
     addQueueListener(filmId);
+
   }
   ifOpen = true;
   if (ifOpen) {
@@ -29,16 +30,14 @@ function onModalOpen(e) {
   }
 }
 
-getFilmFromLocal();
-
-function getFilmFromLocal() {
-  const f = localStorage.getItem('MOVIE_LIST');
+function getFilmFromLocal(localKey) {
+  const f = localStorage.getItem(localKey);
   const films = JSON.parse(f);
   return films;
 }
 
-function getFilmById(id) {
-  const films = getFilmFromLocal();
+function getFilmById(id, localKey) {
+  const films = getFilmFromLocal(localKey);
   films.find(film => {
     if (film.id === id) {
       const markup = filmMarkup(film);
