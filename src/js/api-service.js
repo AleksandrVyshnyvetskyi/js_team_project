@@ -10,17 +10,41 @@ export default class API {
 // ====================================================================================================================
     async fetchPopularMovie() { 
         try {
-        const response = fetch(`${this.BASE_URL}trending/movie/day?${this.API_KEY}&page=${this.pageNumber}`)
-        if(response.ok) {
-          const data = response.then((r) => r.json());
-          return data;
-        }
-          return;
-        }
-      catch(error) {
-      console.log(error)
-      };
+        const response = fetch(`${this.BASE_URL}trending/movie/day?${this.API_KEY}&page=${this.pageNumber}`).then(
+        (response) => {    
+            if (!response.ok) {
+              throw new Error(response.status);
+            }
+         const data = response.then((r) => r.json());
+         return data;
     }
+  );
+//             if(response.ok) {
+//                    const data = response.then((r) => r.json());
+//                    return data;
+//             } if else (!response.ok){
+//                console.log(response.status);
+//                 }
+//             return response.json();
+//          }
+//          catch(error => {
+//            console.log(error)
+//            }
+    };
+  
+//   fetch("https://jsonplaceholder.typicode.com/users")
+//   .then(response => {
+//     if (!response.ok) {
+//       throw new Error(response.status);
+//     }
+//     return response.json();
+//   })
+//   .then(data => {
+//     // Data handling
+//   })
+//   .catch(error => {
+//     // Error handling
+//   });
     
 
 
