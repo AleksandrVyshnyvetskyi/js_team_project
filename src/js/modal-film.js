@@ -19,13 +19,6 @@ function onModalOpen(e) {
     const filmId = Number(e.target.dataset.id);
 
     getFilmById(filmId, 'MOVIE_LIST');
-
-    if (refs.modalContent.textContent === '') {
-      getFilmById(filmId, 'QUEUE_LIST');
-    } else if (refs.modalContent.textContent === '') {
-      getFilmById(filmId, 'WATCHED_LIST');
-    }
-
     addListener(filmId);
     document.body.style.overflowY = 'hidden';
   }
