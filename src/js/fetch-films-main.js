@@ -5,7 +5,7 @@ import Pagination from './pagination.js';
 import API from './api-service.js';
 import { addCurrrentMoviesToLocalStorage } from './local-storage';
 import { preloaderShow, preloaderShowLonger, hidePreloader } from './loader';
-import { renderFilmList } from './create-markup';
+// import { renderFilmList } from './create-markup';
 
 const refs = {
   containerBox: document.querySelector(`.main-container--card__box`),
@@ -97,12 +97,12 @@ addGenresToLocalStorage();
 // =============================================================================================================================
 
 
-import refs from "./refs";
-import { addCurrrentMoviesToLocalStorage } from "./local-storage"
+// import refs from "./refs";
+// import { addCurrrentMoviesToLocalStorage } from "./local-storage"
 
 
 
-const IMG_URL = "https://image.tmdb.org/t/p/w500"
+// const IMG_URL = "https://image.tmdb.org/t/p/w500"
 
 
 
