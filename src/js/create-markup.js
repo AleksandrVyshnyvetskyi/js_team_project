@@ -83,31 +83,31 @@ export {renderMoviesCard};
 
 // ========================================================================================
 
-// function transformId([...arr]) {
-//   const g = localStorage.getItem('GENRES');
-//   const genres = JSON.parse(g);
-//   let genreName;
-//   const array = [...arr];
-//   for (let i = 0; i < genres.length; i++) {
-//     for (let x = 0; x < array.length; x++) {
-//       if (array[x] === genres[i].id) {
-//         genreName = genres[i].name;
-//         array[x] = genreName;
-//       }
-//     }
-//   }
-//   // console.log(array)
+function transformId([...arr]) {
+  const g = localStorage.getItem('GENRES');
+  const genres = JSON.parse(g);
+  let genreName;
+  const array = [...arr];
+  for (let i = 0; i < genres.length; i++) {
+    for (let x = 0; x < array.length; x++) {
+      if (array[x] === genres[i].id) {
+        genreName = genres[i].name;
+        array[x] = genreName;
+      }
+    }
+  }
+  // console.log(array)
 
-//   if (array.length > 2) {
-//     return `${array[0]}, ${array[1]}, Other`;
-//   } else if (array.length === 1) {
-//         return `${array[0]}`
-//   }
-//   else if (array.length === 0) {
-//     return `No genre`;
-//   }
-//   return `${array[0]}, ${array[1]}`;
-// }
+  if (array.length > 2) {
+    return `${array[0]}, ${array[1]}, Other`;
+  } else if (array.length === 1) {
+        return `${array[0]}`
+  }
+  else if (array.length === 0) {
+    return `No genre`;
+  }
+  return `${array[0]}, ${array[1]}`;
+}
 
 // ========================================================================================
 
