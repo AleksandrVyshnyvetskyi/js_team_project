@@ -19,10 +19,11 @@ function onModalOpen(e) {
     const filmId = Number(e.target.dataset.id);
 
     getFilmById(filmId, 'MOVIE_LIST');
-    getFilmById(filmId, 'QUEUE_LIST');
     getFilmById(filmId, 'WATCHED_LIST');
+    getFilmById(filmId, 'QUEUE_LIST');
 
     addListener(filmId);
+    document.body.style.overflowY = 'hidden';
   }
   ifOpen = true;
   if (ifOpen) {
@@ -45,23 +46,3 @@ function getFilmById(id, localKey) {
     }
   });
 }
-// function getFilmByIdInWatched(id) {
-//   const films = getFilmFromWatched();
-//   console.log(films);
-//   films.find(film => {
-//     if (film.id === id) {
-//       const markup = filmMarkup(film);
-//       refs.modalContent.insertAdjacentHTML('beforeend', markup);
-//     }
-//   });
-// }
-// function getFilmByIdInQueue(id) {
-//   const films = getFilmFromQueue();
-//   console.log(films);
-//   films.find(film => {
-//     if (film.id === id) {
-//       const markup = filmMarkup(film);
-//       refs.modalContent.insertAdjacentHTML('beforeend', markup);
-//     }
-//   });
-// }
