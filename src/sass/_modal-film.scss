@@ -19,8 +19,6 @@
   height: 558px;
   padding: 40px 12px;
 
-  // display: flex;
-  // justify-content: left;
   background-color: #ffffff;
 
   position: absolute;
@@ -30,7 +28,7 @@
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1279px) {
     width: 704px;
     height: 552px;
     padding-top: 40px;
@@ -65,11 +63,10 @@
 }
 
 .film-image {
-  // position: absolute;
   width: 375px;
   height: 478px;
   border-radius: 5px;
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1279px) {
     width: 264px;
     height: 373px;
   }
@@ -90,7 +87,7 @@
   margin-top: 0;
   margin-bottom: 21px;
   width: 330px;
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1279px) {
     width: 300px;
   }
 
@@ -115,13 +112,13 @@
 
 .modal-left {
   margin-right: 16px;
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1279px) {
     width: 264px;
   }
 }
 .modal-right {
   display: block;
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1279px) {
     width: 264px;
     padding-left: 68px;
   }
@@ -131,17 +128,16 @@
 }
 .film-info td {
   padding-right: 80px;
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1279px) {
     padding-right: 32px;
   }
 }
 .film-info {
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1279px) {
     width: 264px;
   }
   @media screen and (max-width: 767px) {
     width: 240px;
-    // height: auto;
   }
 }
 .table-name {
@@ -195,22 +191,19 @@
   width: 391px;
   height: 130px;
   overflow-y: auto;
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1279px) {
     width: 264px;
     height: 100px;
   }
   @media screen and (max-width: 767px) {
     width: 240px;
-    // height: 160px;
   }
 }
 
 .modal-button {
   margin-top: 20px;
-  // display: flex;
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1279px) {
     width: 270px;
-    // height: 160px;
   }
 }
 
@@ -225,7 +218,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1279px) {
     width: 125px;
   }
   @media screen and (max-width: 767px) {
@@ -237,9 +230,17 @@
   color: #ffffff;
   background-color: #ff6b01;
 }
+.btn.is-hidden {
+  position: absolute;
+}
+.btn.is-hidden:hover {
+  position: relative;
+}
+
 .watched-btn {
   margin-right: 15px;
-  // @media screen and (max-width: 320px) {
-  //   margin-right: 20px;
-  // }
+}
+
+.queue-btn {
+  position: fixed;
 }
