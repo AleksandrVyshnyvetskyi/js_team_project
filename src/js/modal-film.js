@@ -19,8 +19,9 @@ function onModalOpen(e) {
     const filmId = Number(e.target.dataset.id);
 
     getFilmById(filmId, 'MOVIE_LIST');
-    getFilmById(filmId, 'WATCHED_LIST');
-    getFilmById(filmId, 'QUEUE_LIST');
+    // getFilmById(filmId, 'WATCHED_LIST');
+    // getFilmById(filmId, 'QUEUE_LIST');
+    // check(filmId);
 
     addListener(filmId);
     document.body.style.overflowY = 'hidden';
@@ -30,6 +31,28 @@ function onModalOpen(e) {
     document.addEventListener('keydown', escExit);
   }
 }
+
+// function check(id) {
+//   const filmsMain = getFilmFromLocal('MOVIE_LIST');
+//   const filmsWatched = getFilmFromLocal('WATCHED_LIST');
+//   const filmsQueue = getFilmFromLocal('QUEUE_LIST');
+//   filmsWatched.find(film => {
+//     if (film.id === id) {
+//       console.log('film', film);
+//     }
+//   });
+//   filmsMain.find(film => {
+//     if (film.id === id) {
+//       console.log('film', film);
+//     }
+//   });
+
+//   filmsQueue.find(film => {
+//     if (film.id === id) {
+//       console.log('film', film);
+//     }
+//   });
+// }
 
 function getFilmFromLocal(localKey) {
   const f = localStorage.getItem(localKey);
