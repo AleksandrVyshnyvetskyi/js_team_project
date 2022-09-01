@@ -33,7 +33,7 @@ document.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
-    if (code === 'Escape') {
+    if (e.code === 'Escape') {
         modalOpen.classList.remove('active');
         modalBox.classList.remove('active');
     }
