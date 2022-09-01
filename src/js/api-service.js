@@ -8,13 +8,13 @@ export default class API {
 
     }
 // ====================================================================================================================
-    async fetchPopularMovie() { 
+   async fetchPopularMovie() {
     try {
-        const response = await fetch(${this.BASE_URL}trending/movie/day?${this.API_KEY}&page=${this.pageNumber});
-            if (response.status !== 404) { 
+        const response = await fetch(`${this.BASE_URL}trending/movie/day?${this.API_KEY}&page=${this.pageNumber}`);
+            if (response.status !== 404) {
             const data = await response.json();
-            return data;  
-        }    
+            return data;
+        }
         } catch (error) {
             console.log(error)
         }
