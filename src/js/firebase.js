@@ -22,8 +22,8 @@ if (!ifOpen) {
 
 btnAuth.addEventListener('click', e => {
   e.preventDefault();
-  modalOpen.classList.add('active');
-  modalBox.classList.add('active');
+  modalOpen.classList.add('activeAuth');
+  modalBox.classList.add('activeAuth');
   ifOpen = true;
   if (ifOpen) {
     document.addEventListener('keydown', closeByEsc);
@@ -31,14 +31,14 @@ btnAuth.addEventListener('click', e => {
 });
 
 closeBtn.addEventListener('click', () => {
-  modalOpen.classList.remove('active');
-  modalBox.classList.remove('active');
+  modalOpen.classList.remove('activeAuth');
+  modalBox.classList.remove('activeAuth');
 });
 
 document.addEventListener('click', e => {
   if (e.target === modalOpen) {
-    modalOpen.classList.remove('active');
-    modalBox.classList.remove('active');
+    modalOpen.classList.remove('activeAuth');
+    modalBox.classList.remove('activeAuth');
   }
 });
 
