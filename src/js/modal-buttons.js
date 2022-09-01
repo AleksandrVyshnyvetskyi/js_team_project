@@ -188,8 +188,8 @@ export function addWathcedListener(filmId) {
         localStorage.setItem(WATCHED_LIST_KEY, JSON.stringify(watchedArray));
     }
 
-
-    export function addQueueListener(filmId) {
+}
+    export  function addQueueListener(filmId) {
 
         const btnAddQueue = document.querySelector("[data-addqueue]");
         const btnRemoveQueue = document.querySelector("[data-removequeue]");
