@@ -1,7 +1,7 @@
 import Pagination from './pagination.js'
 import API from './api-service.js'
 import { addCurrrentMoviesToLocalStorage } from "./local-storage"
-import { renderFilmList } from "./create-markup"
+import { renderFilmList } from "./fetch-films-main.js"
 
 
 const containerBox = document.querySelector(`.main-container--card__box`);
