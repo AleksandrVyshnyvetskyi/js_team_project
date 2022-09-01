@@ -32,7 +32,14 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Authorication script
+document.addEventListener('keydown', (e) => {
+    if (code === 'Escape') {
+        modalOpen.classList.remove('active');
+        modalBox.classList.remove('active');
+    }
+});
+
+// Authorisation script
 const firebaseConfig = {
     apiKey: "AIzaSyAOAAbZA3RU8RhMKF_OMDcBQlQNDXUrEUg",
     authDomain: "filmoteka-team-js-project.firebaseapp.com",
@@ -62,8 +69,7 @@ const createAccount = async () => {
     const loginPassword = document.getElementById('password').value;
 
     try {
-        const userCredential = await createUserWithEmailAndPassword(auth, loginEmail, loginPassword);
-        console.log(userCredential.user);
+        await createUserWithEmailAndPassword(auth, loginEmail, loginPassword);
         hideLogInError();
         showUserState();
     } catch (error) {
