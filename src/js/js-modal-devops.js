@@ -1,6 +1,7 @@
 
 // ==========================================================================
 import { outOfModal, escExit, closeModal } from './closeModalFunction';
+import confetti from 'canvas-confetti';
 
 const modalOpen = document.querySelector('.modal-open');
 const modalBox = document.querySelector('.modal-dev__box ');
@@ -9,6 +10,7 @@ const closeBtn = document.querySelector('.modal-close');
 
 btnFooter.forEach((button) => {
     button.addEventListener('click', (e) => {
+        confetti(({ particleCount: 300, spread: 200, zIndex: 2021 }));
         e.preventDefault();
         modalOpen.classList.add('active');
         modalBox.classList.add('active');
@@ -16,6 +18,7 @@ btnFooter.forEach((button) => {
 });
 
 closeBtn.addEventListener('click',() => {
+
     modalOpen.classList.remove('active');
     modalBox.classList.remove('active');
     document.addEventListener('keydown', escExit);
