@@ -1,7 +1,7 @@
 import { filmMarkup } from './render-modal';
 import refs from './refs';
 import { outOfModal, escExit, closeModal } from './closeModalFunction';
-import { addListener } from "./modal-buttons";
+import { addListener } from './modal-buttons';
 
 let ifOpen = '';
 
@@ -18,8 +18,11 @@ function onModalOpen(e) {
     refs.modal.classList.remove('is-hidden');
     const filmId = Number(e.target.dataset.id);
 
-    getFilmById(filmId);
-   addListener(filmId);
+    getFilmById(filmId, 'MOVIE_LIST');
+    getFilmById(filmId, 'QUEUE_LIST');
+    getFilmById(filmId, 'WATCHED_LIST');
+
+    addListener(filmId);
   }
   ifOpen = true;
   if (ifOpen) {
@@ -27,16 +30,14 @@ function onModalOpen(e) {
   }
 }
 
-getFilmFromLocal();
-
-function getFilmFromLocal() {
-  const f = localStorage.getItem('MOVIE_LIST');
+function getFilmFromLocal(localKey) {
+  const f = localStorage.getItem(localKey);
   const films = JSON.parse(f);
   return films;
 }
 
-function getFilmById(id) {
-  const films = getFilmFromLocal();
+function getFilmById(id, localKey) {
+  const films = getFilmFromLocal(localKey);
   films.find(film => {
     if (film.id === id) {
       const markup = filmMarkup(film);
@@ -44,3 +45,23 @@ function getFilmById(id) {
     }
   });
 }
+// function getFilmByIdInWatched(id) {
+//   const films = getFilmFromWatched();
+//   console.log(films);
+//   films.find(film => {
+//     if (film.id === id) {
+//       const markup = filmMarkup(film);
+//       refs.modalContent.insertAdjacentHTML('beforeend', markup);
+//     }
+//   });
+// }
+// function getFilmByIdInQueue(id) {
+//   const films = getFilmFromQueue();
+//   console.log(films);
+//   films.find(film => {
+//     if (film.id === id) {
+//       const markup = filmMarkup(film);
+//       refs.modalContent.insertAdjacentHTML('beforeend', markup);
+//     }
+//   });
+// }

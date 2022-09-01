@@ -36,10 +36,6 @@ function filmMarkup(film) {
   if (film.overview) {
     aboutOverview = film.overview;
   }
-  // let image = '../images/empty_page.gif';
-  // if (film.poster_path) {
-  //   image = `${IMG_URL}${film.poster_path}`;
-  // }
 
   return `
   <div class="modal-wrap">

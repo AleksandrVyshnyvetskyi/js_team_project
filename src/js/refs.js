@@ -6,8 +6,7 @@ export default {
   moviesContainer: document.querySelector('.main-container--card__box'),
   queueList: document.querySelector('.header_btn-queue'),
   loader: document.querySelector('.js-loader'),
- 
-  
+
   // MODAL REFS
   onBtnClose: document.querySelector('button[data-modal-close]'),
   onBtnOpen: document.querySelector('.main-container--card__box'),
