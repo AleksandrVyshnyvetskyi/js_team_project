@@ -16,7 +16,7 @@ export default class API {
           return data;
         }
           return;
-        };
+        }
       catch(error) {
       console.log(error)
       };
