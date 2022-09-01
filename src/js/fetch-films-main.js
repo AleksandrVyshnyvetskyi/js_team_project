@@ -42,16 +42,16 @@ function getPopularMovie(page = false) {
   });
 }
 
-const searchFilms = async () => {
-  const response = await axios.get(
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&language=en-US`
-  );
-  renderFilmList(response.data.results);
-  addCurrrentMoviesToLocalStorage(response.data.results);
-  return response.data;
-};
+// const searchFilms = async () => {
+//   const response = await axios.get(
+//     `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&language=en-US`
+//   );
+//   renderFilmList(response.data.results);
+//   addCurrrentMoviesToLocalStorage(response.data.results);
+//   return response.data;
+// };
 
-searchFilms();
+// searchFilms();
 
 const addGenresToLocalStorage = async () => {
   const genres = await axios.get(
