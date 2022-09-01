@@ -9,7 +9,7 @@ if (!ifOpen) {
   document.removeEventListener('click', escExit);
 }
 
-refs.onBtnOpen.addEventListener('click', onModalOpen);
+refs.containerBox.addEventListener('click', onModalOpen);
 refs.onBtnClose.addEventListener('click', closeModal);
 refs.modal.addEventListener('click', outOfModal);
 
