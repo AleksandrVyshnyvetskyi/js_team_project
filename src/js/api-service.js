@@ -48,13 +48,13 @@ export default class API {
     
 
 
-    async fetchSearchMovie() { 
-         const response = fetch(`${this.BASE_URL}search/movie?${this.API_KEY}&query=${this.searchQuery}&page=${this.pageNumber}`)
+//     async fetchSearchMovie() { 
+//          const response = fetch(`${this.BASE_URL}search/movie?${this.API_KEY}&query=${this.searchQuery}&page=${this.pageNumber}`)
          
-         const data = response.then((r) => r.json());
+//          const data = response.then((r) => r.json());
         
-        return data;  
-    }
+//         return data;  
+//     }
 
     get inputQuery () {
         return this.query;
