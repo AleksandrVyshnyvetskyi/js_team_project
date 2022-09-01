@@ -16,18 +16,18 @@ const refs = {
 
 const getMovieStorage = localStorage.getItem('QUEUE_LIST');
 const totalMovieElements = JSON.parse(getMovieStorage);
-const countElpage = 5;
+const countElpage = 10;
 let totalMoviePages = 0;
 
 
 refs.queue.addEventListener('click', onQueueClick);
 
-if (totalMovieElements === null) {
-  refs.emptyPage.classList.add('visible');
-  refs.paginationPage.style.display = "none";
-  return;
+// if (totalMovieElements.length === 0) {
+//   refs.emptyPage.classList.add('visible');
+//   refs.paginationPage.style.display = "none";
+//   return;
 
-} 
+// } 
 
 
 
@@ -39,7 +39,7 @@ function onQueueClick(e) {
     refs.queue.classList.remove('simple-btn');
     refs.watched.classList.add('simple-btn');
     
-  if (totalMovieElements !== null) {
+  if (totalMovieElements.length !== 0) {
     try {
         paginationLibrary()
        
