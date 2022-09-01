@@ -16,7 +16,7 @@ export default class API {
             return data;
         }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 //             if(response.ok) {
@@ -30,7 +30,6 @@ export default class API {
 //          catch(error => {
 //            console.log(error)
 //            }
-    };
   
 //   fetch("https://jsonplaceholder.typicode.com/users")
 //   .then(response => {
