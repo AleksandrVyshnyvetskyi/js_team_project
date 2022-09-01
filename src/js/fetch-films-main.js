@@ -63,6 +63,34 @@ const addGenresToLocalStorage = async () => {
 addGenresToLocalStorage();
 
 
+
+function renderFilmList(films) {
+  refs.containerBox.innerHTML = '';
+
+    const markup = films
+      .map((film) => {
+            let date = film.release_date ?? film.first_air_date ?? null;
+            date = (date !== null) ? date.slice(0, 4) : '';
+            return `
+            <li class="main-container--card"
+        data-modal-open>
+        <img class="card-poster"
+        data-id="${film.id}" 
+        src="${film.poster_path === null ? "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+              : `${IMG_URL}${film.poster_path}`
+          }"
+        alt="${film.original_name}" loading="lazy">
+        <div class="card-wrap">
+        <h2 class="card-title" data-id="${film.id}">${film.original_title.toUpperCase() || film.title.toUpperCase() || film.title.toUpperCase()}</h2>
+        <p class="card-info"> ${transformId(film.genre_ids)} | ${date} </p>
+         </div>
+    </li>`;
+        }).join("");
+refs.containerBox.innerHTML = markup;
+}
+
+
+
 // function renderFilmList (films){
 //   const markup = films.map(film => {
 //       return `
