@@ -7,12 +7,19 @@ export default class API {
         this.searchQuery = "";  
 
     }
-
+// ====================================================================================================================
     async fetchPopularMovie() { 
-
+        try {
         const response = fetch(`${this.BASE_URL}trending/movie/day?${this.API_KEY}&page=${this.pageNumber}`)
-        const data = response.then((r) => r.json());
-        return data;
+        if(response.ok) {
+          const data = response.then((r) => r.json());
+          return data;
+        }
+          return;
+        };
+      catch(error) {
+      console.log(error)
+      };
     }
     
 
