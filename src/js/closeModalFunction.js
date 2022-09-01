@@ -4,6 +4,7 @@ import refs from './refs';
 function closeModal() {
   refs.modal.classList.add('is-hidden');
   refs.modalContent.innerHTML = '';
+  document.body.style.overflowY = '';
   // document.removeEventListener('keydown', escExit);
 }
 
