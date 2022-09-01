@@ -1,4 +1,8 @@
 export default {
+  //form
+  searchForm: document.querySelector('.header_input-wrap'),
+  inputEl: document.querySelector('.header_input'),
+  errorText: document.querySelector('.header_error-msg'),
   // galleryHome: document.querySelector(".main-container--card__box"),
   containerBox: document.querySelector(`.main-container--card__box`),
   containerCard: document.querySelector(`.main-container--card`),
