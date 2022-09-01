@@ -1,5 +1,6 @@
 import Pagination from './pagination.js';
 import {renderMoviesCard} from "./create-markup.js"
+import { preloaderShowLonger } from './loader';
 
 
 
@@ -57,6 +58,7 @@ function onQueueClick(e) {
 
 
 function paginationLibrary(page = false) { 
+  preloaderShowLonger();
   const queryPage = page ? page : 1; 
   const partMovie = [];
 
