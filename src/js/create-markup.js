@@ -93,7 +93,7 @@ function transformId([...arr]) {
   }
   // console.log(array)
 
-  if (array.length > 2 || array.length === 3) {
+  if (array.length > 2) {
     return `${array[0]}, ${array[1]}, Other`;
   } else if (array.length === 1) {
         return `${array[0]}`
