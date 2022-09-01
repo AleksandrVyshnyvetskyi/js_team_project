@@ -9,7 +9,6 @@ export default class API {
     }
 // ====================================================================================================================
     async fetchPopularMovie() { 
-        try {
         const response = fetch(`${this.BASE_URL}trending/movie/day?${this.API_KEY}&page=${this.pageNumber}`).then(
         (response) => {    
             if (!response.ok) {
@@ -17,7 +16,6 @@ export default class API {
             }
          const data = response.then((r) => r.json());
          return data;
-    }
   );
 //             if(response.ok) {
 //                    const data = response.then((r) => r.json());
@@ -49,11 +47,17 @@ export default class API {
 
 
     async fetchSearchMovie() { 
-         const response = fetch(`${this.BASE_URL}search/movie?${this.API_KEY}&query=${this.searchQuery}&page=${this.pageNumber}`)
-         
+         const response = fetch(`${this.BASE_URL}search/movie?${this.API_KEY}&query=${this.searchQuery}&page=${this.pageNumber}`).then(
+        (response) => {    
+            if (!response.ok) {
+              throw new Error(response.status);
+            }
          const data = response.then((r) => r.json());
+         return data;
+         
+//          const data = response.then((r) => r.json());
         
-        return data;  
+//         return data;  
     }
 
     get inputQuery () {
