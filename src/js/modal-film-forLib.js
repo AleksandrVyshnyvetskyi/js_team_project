@@ -1,8 +1,6 @@
 import { filmMarkup } from './render-modal';
 import refs from './refs';
 import { outOfModal, escExit, closeModal } from './closeModalFunction';
-import { addListener } from './modal-buttons';
-
 let ifOpen = '';
 
 if (!ifOpen) {
@@ -18,12 +16,9 @@ function onModalOpen(e) {
     refs.modal.classList.remove('is-hidden');
     const filmId = Number(e.target.dataset.id);
 
-    getFilmById(filmId, 'MOVIE_LIST');
-
+    getFilmById(filmId, 'WATCHED_LIST');
     if (refs.modalContent.textContent === '') {
       getFilmById(filmId, 'QUEUE_LIST');
-    } else if (refs.modalContent.textContent === '') {
-      getFilmById(filmId, 'WATCHED_LIST');
     }
 
     addListener(filmId);
