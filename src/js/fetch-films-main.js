@@ -63,6 +63,8 @@ const addGenresToLocalStorage = async () => {
 addGenresToLocalStorage();
 
 
+
+
 // function renderFilmList (films){
 //   const markup = films.map(film => {
 //       return `

@@ -1,16 +1,17 @@
 import {  renderFilmList} from "./create-markup";
- import { preloaderShow, preloaderShowLonger, hidePreloader } from './loader';
+import { preloaderShow, preloaderShowLonger, hidePreloader } from './loader';
 import { addCurrrentMoviesToLocalStorage } from "./local-storage";
 import Pagination from './pagination.js';
 import API from './api-service.js';
+import refs from './refs';
 
-
-const refs = {
-    searchForm: document.querySelector('.header_input-wrap'),
-    inputEl: document.querySelector('.header_input'),
-    moviesContainer: document.querySelector('.main-container--card__box'),
-    errorText: document.querySelector('.header_error-msg'),
-};
+/////////////////винесено в refs
+// const refs = {
+//     searchForm: document.querySelector('.header_input-wrap'),
+//     inputEl: document.querySelector('.header_input'),
+//     moviesContainer: document.querySelector('.main-container--card__box'),
+//     errorText: document.querySelector('.header_error-msg'),
+// };
 
 const apiService = new API;
 const pagination = new Pagination;
@@ -43,7 +44,7 @@ function onSearch(event) {
    
     getSearchMovie();
     preloaderShow();
-    // refs.inputEl.value = "";
+    refs.inputEl.value = "";
 }
 
 async function getSearchMovie(page = false) {
@@ -60,12 +61,12 @@ async function getSearchMovie(page = false) {
             pagination.setTotalPages = data.total_pages; // Передает общее кол-во страниц в пагинатор
             pagination.setCallback = getSearchMovie; // Передает ссылку на коллбэк функцию 
             pagination.renderPagination(); // Вызов пагинации
-            // clearMoviesContainer();
+            
             refs.errorText.classList.add('is-hidden');
             
-             renderFilmList(data.results);
-            addCurrrentMoviesToLocalStorage (data.results) 
-            console.log(data.total_pages);
+            renderFilmList(data.results);
+            addCurrrentMoviesToLocalStorage(data.results);
+            // console.log(data.total_pages);
         });      
     } catch (error) {
         console.log(error)
@@ -121,8 +122,4 @@ async function getSearchMovie(page = false) {
 //     return `${array[0]}`
 // };
 
-
-function clearMoviesContainer() {
-    refs.moviesContainer.innerHTML = "";
-}
 

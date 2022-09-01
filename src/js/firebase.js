@@ -88,6 +88,7 @@ const createAccount = async () => {
   } catch (error) {
     showAuthError(error);
   }
+
 };
 
 const registerBtn = document.querySelector('#registerBtn');

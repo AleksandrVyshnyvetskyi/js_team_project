@@ -1,5 +1,6 @@
 import Pagination from './pagination.js';
 import {renderMoviesCard} from "./create-markup.js"
+import { preloaderShowLonger } from './loader';
 
 
 
@@ -15,13 +16,14 @@ const refs = {
 
 const getMovieStorage = localStorage.getItem('WATCHED_LIST');
 const totalMovieElements = JSON.parse(getMovieStorage);
-const countElpage = 4;
+const countElpage = 10;
 let totalMoviePages = 0;
 
 
 refs.watched.addEventListener('click', onWatchedClick);
 
-if (totalMovieElements === null) {
+
+if (totalMovieElements.length === 0) {
   refs.emptyPage.classList.add('visible');
   refs.paginationPage.style.display = "none";
   return;
@@ -42,7 +44,7 @@ function onWatchedClick(e) {
   refs.watched.classList.remove('simple-btn');
   
 
-  if (totalMovieElements !== null) {
+  if (totalMovieElements.length !== 0) {
     try {
       paginationLibrary();
        
@@ -59,6 +61,7 @@ function onWatchedClick(e) {
 
 
 function paginationLibrary(page = false) { 
+  preloaderShowLonger();
   const queryPage = page ? page : 1; 
   const partMovie = [];
 

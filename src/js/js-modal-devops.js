@@ -30,4 +30,11 @@ document.addEventListener('click', (e) => {
         modalBox.classList.remove('active');
     }
 });
+
+document.addEventListener('keydown', (e) => {
+    if (e.code === 'Escape') {
+        modalOpen.classList.remove('active');
+        modalBox.classList.remove('active');
+    }
+});
 // ==========================================================================
