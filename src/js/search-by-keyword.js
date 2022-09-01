@@ -1,4 +1,4 @@
-import {  renderFilmList} from "./create-markup";
+import { renderFilmList } from "./fetch-films-main.js"
 import { preloaderShow, preloaderShowLonger, hidePreloader } from './loader';
 import { addCurrrentMoviesToLocalStorage } from "./local-storage";
 import Pagination from './pagination.js';
