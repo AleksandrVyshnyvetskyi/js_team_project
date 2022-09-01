@@ -53,7 +53,7 @@ function renderMoviesCard(films) {
         <div class="card-wrap">
         <h2 class="card-title" data-id="${film.id}">${film.original_title.toUpperCase() || film.title.toUpperCase() || film.title.toUpperCase()}</h2>
         <p class="card-info"> ${transformId(film.genre_ids)} | ${date} <span class="card-rating"> ${film.vote_average.toFixed(1)}</span></p>
-         </div>
+          </div>
     </li>`;
         };        
 
