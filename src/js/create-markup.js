@@ -109,14 +109,14 @@
 
 
 import refs from "./refs";
-import { addCurrrentMoviesToLocalStorage } from "./local-storage"
-​
-​
-const IMG_URL = "https://image.tmdb.org/t/p/w500"
-​
-​
-​
-​
+import { addCurrrentMoviesToLocalStorage } from "./local-storage";
+
+
+const IMG_URL = "https://image.tmdb.org/t/p/w500";
+
+
+
+
 ///////////// --функція для створення карток популярних фільмів на головну сторінку----///////
 function renderFilmList(films) {
     const markup = films
@@ -139,9 +139,9 @@ function renderFilmList(films) {
         }).join("");
 refs.containerBox.innerHTML = markup;
 }
-​
+
 export {renderFilmList};
-​
+
 ///////////// --функція для створення карток  фільмів в MY LIBRARY----///////
 function renderMoviesCard(films) {
     const filmCards = films
@@ -163,10 +163,10 @@ function renderMoviesCard(films) {
     refs.moviesContainer.insertAdjacentHTML('beforeend', filmCards);
     
 };
-​
+
 export {renderMoviesCard};
-​
-​
+
+
 ///////////// --функція для створення списку жанрів----///////
 function transformId ([...arr]) {
     const g = localStorage.getItem("GENRES");
