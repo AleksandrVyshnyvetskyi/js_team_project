@@ -81,8 +81,6 @@ function renderMoviesCard(films) {
 export {renderMoviesCard};
 
 
-// ========================================================================================
-
 function transformId([...arr]) {
   const g = localStorage.getItem('GENRES');
   const genres = JSON.parse(g);
@@ -108,8 +106,6 @@ function transformId([...arr]) {
   }
   return `${array[0]}, ${array[1]}`;
 }
-
-// ========================================================================================
 
 
 // import refs from "./refs";
