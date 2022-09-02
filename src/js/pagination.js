@@ -22,9 +22,9 @@ export default class Pagination {
         paginationList.addEventListener('click', this.onClickPages.bind(this));
         paginationPrev.addEventListener('click', this.onClickBtnPrev.bind(this))
         paginationNext.addEventListener('click', this.onClickBtnNext.bind(this))
-        window.addEventListener('resize', () => { 
-            this.renderPagination();
-        });
+        // window.addEventListener('resize', () => { 
+        //     this.renderPagination();
+        // });
     }
     // Рендер пагинации
     renderPagination() { 
