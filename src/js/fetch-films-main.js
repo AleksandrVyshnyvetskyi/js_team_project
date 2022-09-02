@@ -6,6 +6,7 @@ import API from './api-service.js';
 import { addCurrrentMoviesToLocalStorage } from './local-storage';
 import { preloaderShow, preloaderShowLonger, hidePreloader } from './loader';
 // import { renderFilmList } from './create-markup';
+import refs from './refs'
 
 const refs = {
   containerBox: document.querySelector(`.main-container--card__box`),
