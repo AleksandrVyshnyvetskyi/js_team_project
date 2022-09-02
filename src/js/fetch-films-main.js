@@ -1,4 +1,5 @@
 import axios from 'axios';
+import refs from './refs'
 const API_KEY = '2994e3a31c3cad99fd99bf3fe61d916f';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 import Pagination from './pagination.js';
@@ -19,9 +20,6 @@ const apiService = new API;
 const pagination = new Pagination;
 
 getPopularMovie();
-
-
-
 
 
 // Фун-ия, которая берет и передает данные по апи, имеет первый! параметр page = false. После параметра page можете передавать свои.
