@@ -44,9 +44,8 @@ document.addEventListener('click', e => {
 
 function closeByEsc(e) {
   if (e.code === 'Escape') {
-    console.log(e.code);
-    modalOpen.classList.remove('active');
-    modalBox.classList.remove('active');
+    modalOpen.classList.remove('activeAuth');
+    modalBox.classList.remove('activeAuth');
   }
 }
 document.addEventListener('keydown', closeByEsc);
