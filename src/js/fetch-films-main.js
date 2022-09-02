@@ -137,6 +137,9 @@ export {renderFilmList};
 
 ///////////// --функція для створення карток  фільмів в MY LIBRARY----///////
 function renderMoviesCard(films) {
+    if (films === []) {
+    return
+  };
     const filmCards = films
       .map((film) => {
         let date = film.release_date ?? film.first_air_date ?? null;
