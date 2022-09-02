@@ -137,6 +137,10 @@ let watchedArray = localStor.watched;
 let queueArray = localStor.queue;
 
 
+
+//  ======================================= ВАТЧЕД ==========================================
+
+
 export function addWathcedListener(filmId) {
 
     const btnAddWatched = document.querySelector("[data-addwatched]");
@@ -147,7 +151,6 @@ export function addWathcedListener(filmId) {
 
 
     if (!isList) {
-        console.log("нету");
         btnAddWatched.addEventListener("click", onAddWathedClick);
     }
     else if (isMovieinWatchedList) {
@@ -185,10 +188,26 @@ export function addWathcedListener(filmId) {
         const watched_list_array = JSON.parse(watched_list);
         const indexFilm = watched_list_array.findIndex(fil => fil.id === film.id);
         watchedArray.splice(indexFilm, 1);
-        localStorage.setItem(WATCHED_LIST_KEY, JSON.stringify(watchedArray));
+        localStor.addToLSwathced(WATCHED_LIST_KEY);
     }
 
 }
+
+
+function movieOfWatchedList(filmid) {
+    const watched_list = localStorage.getItem(WATCHED_LIST_KEY);
+    if (!watched_list) {
+        return null;
+    }
+      else {
+    const watched_list_array = JSON.parse(watched_list);
+   return watched_list_array.find(f => f.id === filmid);
+     }
+}; 
+
+// ======================================== КВАЕД =========================================
+
+
     export  function addQueueListener(filmId) {
 
         const btnAddQueue = document.querySelector("[data-addqueue]");
@@ -232,27 +251,13 @@ export function addWathcedListener(filmId) {
         btnAddQueue.addEventListener("click", onAddQueueClick);
 
         const film = getObjectbyId(filmId);
-        const queue_list = localStorage.getItem(WATCHED_LIST_KEY);
+        const queue_list = localStorage.getItem(QUEUE_LIST_KEY);
         const queue_list_array = JSON.parse(queue_list);
         const indexFilm = queue_list_array.findIndex(fil => fil.id === film.id);
         queueArray.splice(indexFilm, 1);
-        localStorage.setItem(WATCHED_LIST_KEY, JSON.stringify(queueArray));
+        localStorage.setItem(QUEUE_LIST_KEY, JSON.stringify(queueArray));
         }
     }
-
-
-    
-
-function movieOfWatchedList(filmid) {
-    const watched_list = localStorage.getItem(WATCHED_LIST_KEY);
-    if (!watched_list) {
-        return null;
-    }
-      else {
-    const watched_list_array = JSON.parse(watched_list);
-   return watched_list_array.find(f => f.id === filmid);
-     }
-}; 
 
 function movieOfQueueList(filmid) {
     const queue_list = localStorage.getItem(QUEUE_LIST_KEY);
@@ -263,6 +268,14 @@ function movieOfQueueList(filmid) {
         return queue_list_array.find(f => f.id === filmid); 
             }
 };
+
+
+
+
+
+
+
+
 
 function getObjectbyId(filmId) { 
      const movie_list = localStorage.getItem(MOVIE_LIST_KEY)

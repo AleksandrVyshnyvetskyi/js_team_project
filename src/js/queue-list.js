@@ -1,5 +1,5 @@
 import Pagination from './pagination.js';
-import { renderMoviesCard } from "./fetch-films-main.js"
+import { renderMoviesCard } from "./render-film";
 import { preloaderShowLonger } from './loader';
 
 
