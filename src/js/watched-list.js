@@ -28,6 +28,7 @@ refs.watched.addEventListener('click', onWatchedClick);
 if (totalMovieElements.length === 0) {
   refs.emptyPage.classList.add('visible');
   refs.paginationPage.style.display = "none";
+  return;
 }
 
 
