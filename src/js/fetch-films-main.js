@@ -77,7 +77,7 @@ function imageSrc(image) {
 // --функція для створення карток  фільмів в MY LIBRARY
 
 function renderMoviesCard(films) {
-  if (films === []) {
+    if (films === [] || films === undefined) {
     return
   };
     const filmCards = films
