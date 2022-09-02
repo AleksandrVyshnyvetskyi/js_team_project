@@ -4,8 +4,6 @@ import { preloaderShowLonger } from './loader';
 
 
 
-
-
 const pagination = new Pagination;
 
 const refs = {
@@ -22,14 +20,14 @@ const countElpage = 10;
 let totalMoviePages = 0;
 
 
+
+
 refs.watched.addEventListener('click', onWatchedClick);
 
 
 if (totalMovieElements.length === 0) {
   refs.emptyPage.classList.add('visible');
   refs.paginationPage.style.display = "none";
-  return;
-
 }
 
 

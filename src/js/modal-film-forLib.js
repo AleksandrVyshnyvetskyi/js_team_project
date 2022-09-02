@@ -1,6 +1,8 @@
 import { filmMarkup } from './render-modal';
 import refs from './refs';
 import { outOfModal, escExit, closeModal } from './closeModalFunction';
+import   { addWathcedListener, addQueueListener } from "./modal-buttons";
+
 let ifOpen = '';
 
 if (!ifOpen) {
@@ -21,7 +23,8 @@ function onModalOpen(e) {
       getFilmById(filmId, 'QUEUE_LIST');
     }
 
-    addListener(filmId);
+    addWathcedListener(filmId);
+    addQueueListener(filmId);
     document.body.style.overflowY = 'hidden';
   }
   ifOpen = true;

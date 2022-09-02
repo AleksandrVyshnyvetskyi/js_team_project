@@ -1,4 +1,5 @@
 import axios from 'axios';
+import refs from './refs'
 const API_KEY = '2994e3a31c3cad99fd99bf3fe61d916f';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 import Pagination from './pagination.js';
@@ -19,9 +20,6 @@ const apiService = new API;
 const pagination = new Pagination;
 
 getPopularMovie();
-
-
-
 
 
 // Фун-ия, которая берет и передает данные по апи, имеет первый! параметр page = false. После параметра page можете передавать свои.
@@ -164,7 +162,7 @@ function renderMoviesCard(films) {
         data-modal-open>
           <img class="card-poster"
         data-id="${film.id}" 
-        src="${IMG_URL}${film.poster_path}" 
+        src="https://image.tmdb.org/t/p/w500${film.poster_path}" 
         alt="${film.original_name}" loading="lazy">
         <div class="card-wrap">
         <h2 class="card-title" data-id="${film.id}">${film.original_title.toUpperCase() || film.title.toUpperCase() || film.title.toUpperCase()}</h2>

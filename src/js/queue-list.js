@@ -22,12 +22,10 @@ let totalMoviePages = 0;
 
 refs.queue.addEventListener('click', onQueueClick);
 
-// if (totalMovieElements.length === 0) {
-//   refs.emptyPage.classList.add('visible');
-//   refs.paginationPage.style.display = "none";
-//   return;
-
-// } 
+if (totalMovieElements.length === 0) {
+  refs.emptyPage.classList.add('visible');
+  refs.paginationPage.style.display = "none";
+} 
 
 
 
