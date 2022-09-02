@@ -8,10 +8,10 @@ import { preloaderShow, preloaderShowLonger, hidePreloader } from './loader';
 // import { renderFilmList } from './create-markup';
 import refs from './refs'
 
-const refs = {
-  containerBox: document.querySelector(`.main-container--card__box`),
-  containerCard: document.querySelector(`.main-container--card`),
-};
+// const refs = {
+//   containerBox: document.querySelector(`.main-container--card__box`),
+//   containerCard: document.querySelector(`.main-container--card`),
+// };
 
 const containerBox = document.querySelector(`.main-container--card__box`);
 const inputEl = document.querySelector('.header_input');
