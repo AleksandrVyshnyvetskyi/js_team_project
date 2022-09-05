@@ -31,20 +31,3 @@ function getPopularMovie(page = false) {
         
 );
 }
-
-// function renderFilmList(films) {
-
-//     const markup = films.map((film) => {    
-//        return `
-//         <li class="main-container--card">
-//             <img class="film-poster" src="${film.poster_path === null ? './no_image.jpg' : `https://image.tmdb.org/t/p/w500${film.poster_path}`}" alt="${film.original_title}" loading="lazy">
-//             <p class="film-info">
-//             <h2 class="film-title">${film.original_title.toUpperCase()}</h2>
-//             <p class="more-info"> ${film.genre_ids} | ${film.release_date.slice(0,4)}</p>
-//             </p>
-//         </li>
-//       `;
-//     }).join("");
-    
-//     containerBox.insertAdjacentHTML("beforeend", markup);
-// };

@@ -19,34 +19,8 @@ export default class API {
             console.log(error);
         }
     }
-//             if(response.ok) {
-//                    const data = response.then((r) => r.json());
-//                    return data;
-//             } if else (!response.ok){
-//                console.log(response.status);
-//                 }
-//             return response.json();
-//          }
-//          catch(error => {
-//            console.log(error)
-//            }
-  
-//   fetch("https://jsonplaceholder.typicode.com/users")
-//   .then(response => {
-//     if (!response.ok) {
-//       throw new Error(response.status);
-//     }
-//     return response.json();
-//   })
-//   .then(data => {
-//     // Data handling
-//   })
-//   .catch(error => {
-//     // Error handling
-//   });
+// ====================================================================================================================
     
-
-
     async fetchSearchMovie() { 
          const response = fetch(`${this.BASE_URL}search/movie?${this.API_KEY}&query=${this.searchQuery}&page=${this.pageNumber}`)
          
