@@ -19,7 +19,6 @@ function onSearch(event) {
          return refs.errorText.classList.remove('is-hidden');
     }
     
-    // console.log(searchQuery);
     refs.errorText.classList.add('is-hidden');
    
     getSearchMovie();
@@ -46,7 +45,6 @@ async function getSearchMovie(page = false) {
             
             renderFilmList(data.results);
             addCurrrentMoviesToLocalStorage(data.results);
-            // console.log(data.total_pages);
         });      
     } catch (error) {
         console.log(error)

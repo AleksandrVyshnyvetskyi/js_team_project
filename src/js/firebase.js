@@ -7,6 +7,16 @@ import {
   onAuthStateChanged,
   signOut,
 } from 'firebase/auth';
+
+
+// ========================= Notiflix ===============================
+import Notiflix from 'notiflix';
+
+// Документация: https://notiflix.github.io/documentation
+// ==================================================================
+
+
+
 // Modal for authorisation
 
 const modalOpen = document.querySelector('.modal-open');
